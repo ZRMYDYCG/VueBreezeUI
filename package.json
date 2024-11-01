@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@yq-design/components": "workspace:*",
+    "@yq-design/theme-chalk": "workspace:*",
+    "@yq-design/utils": "workspace:*",
     "typescript": "^5.6.3",
     "vue": "^3.5.12"
   }

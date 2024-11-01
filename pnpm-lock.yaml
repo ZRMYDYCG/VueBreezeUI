@@ -8,12 +8,27 @@ importers:
 
   .:
     dependencies:
+      '@yq-design/components':
+        specifier: workspace:^
+        version: link:packages/components
+      '@yq-design/theme-chalk':
+        specifier: workspace:^
+        version: link:packages/theme-chalk
+      '@yq-design/utils':
+        specifier: workspace:^
+        version: link:packages/utils
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
       vue:
         specifier: ^3.5.12
         version: 3.5.12(typescript@5.6.3)
+
+  packages/components: {}
+
+  packages/theme-chalk: {}
+
+  packages/utils: {}
 
 packages:
 
