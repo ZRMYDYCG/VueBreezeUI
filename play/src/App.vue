@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const h = ''
-
-console.log(h)
+import { AddCircle } from '@vicons/ionicons5'
 </script>
 
 <template>
-  <div></div>
+  <div>
+    <AddCircle></AddCircle>
+  </div>
 </template>
 
 <style scoped></style>
