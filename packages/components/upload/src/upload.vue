@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 interface uploadFile {
   uid?: number
   name?: string
@@ -51,12 +53,38 @@ const props = withDefaults(defineProps<IUploadProps>(), {
 })
 const emits = defineEmits<IUploadEmits>()
 
-const handleChange = () => {
-  console.log('change')
+const inputRef = ref<HTMLInputElement>()
+
+const handleChange = (event: Event) => {
+  const files = (event.target as HTMLInputElement).files
+  for (let i = 0; i < files.length; i++) {
+    if (files) {
+      const rawFile = files[i] as uploadRawFile
+      rawFile.uid = genId()
+      upload(rawFile)
+    }
+  }
 }
 
 const handleClick = () => {
-  console.log('click')
+  // 清除上一次操作的文件
+  inputRef.value!.value = ''
+  // 触发用户选择文件
+  inputRef.value!.click()
+}
+
+let id = 0
+const genId = () => id++
+
+// 处理文件上传
+const upload = async (file: uploadRawFile) => {
+  // 文件上传之前文件清空
+  inputRef.value!.value = ''
+
+  let res = await (emits['beforeUpload'] as (file: uploadRawFile) => Promise<boolean> | boolean)(
+    file
+  )
+  console.log(res)
 }
 
 defineOptions({
@@ -65,9 +93,16 @@ defineOptions({
 </script>
 
 <template>
-  <div @click="handleClick">
+  <div @click="handleClick" class="yq-upload">
     <slot></slot>
-    <input type="file" :name="name" :accept="accept" :multiple="multiple" @change="handleChange" />
+    <input
+      type="file"
+      :name="name"
+      :accept="accept"
+      :multiple="multiple"
+      @change="handleChange"
+      ref="inputRef"
+    />
   </div>
 </template>
 
