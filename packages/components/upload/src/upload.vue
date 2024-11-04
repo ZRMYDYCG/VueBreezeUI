@@ -20,6 +20,19 @@ interface IUploadProps {
   headers: object
 }
 
+type uploadRawFile = File & { uid: number }
+
+type uploadProgressEvent = ProgressEvent & { percentage: number }
+
+interface IUploadEmits {
+  onPreview: (file: uploadFile) => void
+  beforeUpload: (file: uploadRawFile) => Promise<boolean> | boolean
+  onChange: (file: uploadFile) => void
+  beforeRemove: (file: uploadFile, uploadFiles: uploadFiles) => void
+  onRemove: (file: uploadFile, uploadFiles: uploadFiles) => void
+  onProgress: (file: uploadProgressEvent) => void
+}
+
 const props = withDefaults(defineProps<IUploadProps>(), {
   fileList: [] as any,
   action: '',
@@ -28,6 +41,7 @@ const props = withDefaults(defineProps<IUploadProps>(), {
   method: 'post',
   headers: {} as any
 })
+const emits = defineEmits<IUploadEmits>()
 </script>
 
 <template>
