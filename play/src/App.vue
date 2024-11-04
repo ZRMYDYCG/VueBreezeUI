@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import YqIcon from '@yq-design/components/icon/src/icon.vue'
-import { AddCircle } from '@vicons/ionicons5'
+import YqUpload from '@yq-design/components/upload/src/upload.vue'
 </script>
 
 <template>
-  <yq-icon :size="20" color="pink">
-    <AddCircle></AddCircle>
-  </yq-icon>
+  <YqUpload></YqUpload>
 </template>
 
 <style scoped></style>
