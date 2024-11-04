@@ -30,7 +30,13 @@ interface IUploadEmits {
   onChange: (file: uploadFile) => void
   beforeRemove: (file: uploadFile, uploadFiles: uploadFiles) => void
   onRemove: (file: uploadFile, uploadFiles: uploadFiles) => void
-  onProgress: (file: uploadProgressEvent) => void
+  onProgress: (file: uploadProgressEvent, uploadFile: uploadFile, uploadFiles: uploadFiles) => void
+  onSuccess: (
+    response: uploadProgressEvent,
+    uploadFile: uploadFile,
+    uploadFiles: uploadFiles
+  ) => void
+  onError: (error: any, uploadFile: uploadFile, uploadFiles: uploadFiles) => void
 }
 
 const props = withDefaults(defineProps<IUploadProps>(), {
