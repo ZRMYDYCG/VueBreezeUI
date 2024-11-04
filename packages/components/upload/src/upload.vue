@@ -16,6 +16,7 @@ interface IUploadProps {
   action: string
   multiple: boolean
   name: string
+  accept: string
   method: string
   headers: object
 }
@@ -43,15 +44,31 @@ const props = withDefaults(defineProps<IUploadProps>(), {
   fileList: [] as any,
   action: '',
   multiple: false,
+  accept: '',
   name: 'file',
   method: 'post',
   headers: {} as any
 })
 const emits = defineEmits<IUploadEmits>()
+
+const handleChange = () => {
+  console.log('change')
+}
+
+const handleClick = () => {
+  console.log('click')
+}
+
+defineOptions({
+  name: 'YqUpload'
+})
 </script>
 
 <template>
-  <div>Upload</div>
+  <div @click="handleClick">
+    <slot></slot>
+    <input type="file" :name="name" :accept="accept" :multiple="multiple" @change="handleChange" />
+  </div>
 </template>
 
 <style scoped></style>
