@@ -3,7 +3,7 @@ import YqUpload from '@yq-design/components/upload/src/upload.vue'
 import '@yq-design/theme-chalk/upload.scss'
 
 const handleBeforeUpload = (file: any) => {
-  debugger
+  console.log(file)
   return true
 }
 </script>
