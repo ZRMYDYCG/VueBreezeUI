@@ -1,41 +1,33 @@
-import type { uploadProgressEvent } from './upload'
-import type { RequestOptions } from './upload-content'
+import type { IRequestOptions } from './upload'
 
-export function httpRequest(options: RequestOptions) {
+export const uploadRequest = (options: IRequestOptions) => {
   const xhr = new XMLHttpRequest()
-  const action = options.action
-
-  xhr.open(options.methods, action, true)
-  xhr.upload.addEventListener('progress', function (event: ProgressEvent) {
-    const progressEvents = event as uploadProgressEvent
-    progressEvents.percentage = event.total > 0 ? (event.loaded / event.total) * 100 : 0
-    options.onProgress(progressEvents) // 上传进度
-  })
-
-  const headers = options.headers || {}
-  if (headers) {
-    for (const [key, value] of Object.entries(options.headers)) {
-      xhr.setRequestHeader(key, value)
-    }
-  }
-
   const formData = new FormData()
-  if (options.data) {
-    for (const [key, value] of Object.entries(options.data)) {
-      formData.append(key, value)
+  formData.append('file', options.selectedFile)
+  xhr.open('POST', options.uploadUrl, true)
+  xhr.upload.onprogress = (event: ProgressEvent) => {
+    if (event.lengthComputable) {
+      const uploadProgress = (event.loaded / event.total) * 100
+      options.onProgress(options.uid, uploadProgress)
     }
   }
-  formData.append(options.name, options.file)
-
-  xhr.onload = function () {
-    options.onSuccess(xhr.response)
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      const response = JSON.parse(xhr.responseText)
+      if (response.error || response.err) {
+        options.onError(options.uid, response)
+      } else {
+        options.onSuccess(options.uid, response)
+      }
+    }
   }
-
-  xhr.addEventListener('error', (e) => {
-    options.onError(e)
-  })
-
+  xhr.onerror = () => {
+    options.onError(options.uid, '上传失败')
+  }
   xhr.send(formData)
 
-  return xhr
+  // 提供abort方法, 用于取消上传（https://github.com/user-attachments/assets/b955b833-5263-4dbb-a7b6-c852601f2b9d）
+  return {
+    abort: () => xhr.abort()
+  }
 }
