@@ -21,6 +21,7 @@ interface IUploadProps {
   accept: string
   method: string
   headers: object
+  beforeUpload?: (file: File & { uid: number }) => Promise<boolean> | boolean
 }
 
 type uploadRawFile = File & { uid: number }
@@ -29,7 +30,6 @@ type uploadProgressEvent = ProgressEvent & { percentage: number }
 
 interface IUploadEmits {
   onPreview: (file: uploadFile) => void
-  beforeUpload: (file: uploadRawFile) => Promise<boolean> | boolean
   onChange: (file: uploadFile) => void
   beforeRemove: (file: uploadFile, uploadFiles: uploadFiles) => void
   onRemove: (file: uploadFile, uploadFiles: uploadFiles) => void
@@ -80,11 +80,11 @@ const genId = () => id++
 const upload = async (file: uploadRawFile) => {
   // 文件上传之前文件清空
   inputRef.value!.value = ''
-
-  let res = await (emits['beforeUpload'] as (file: uploadRawFile) => Promise<boolean> | boolean)(
-    file
-  )
-  console.log(res)
+  // 文件上传之前的钩子函数, 看用户反应
+  if (props.beforeUpload) {
+    const res = await props.beforeUpload(file)
+    if (!res) return // 停止上传
+  }
 }
 
 defineOptions({
