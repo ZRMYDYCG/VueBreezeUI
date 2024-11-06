@@ -1,3 +1,5 @@
+export type IUploadStatus = 'ready' | 'uploading' | 'success' | 'error' | 'pause'
+
 export interface IRequestOptions {
   uid: number
   uploadUrl: string
@@ -8,9 +10,19 @@ export interface IRequestOptions {
   onProgress: (uid: number, progress: number) => void
 }
 
-export interface IFile {
+export interface IUserFile {
   name: string
   url: string
+}
+
+export interface IUploadFile {
+  uid: number
+  name: string
+  raw?: File
+  progress: number
+  status: IUploadStatus
+  url?: string
+  response?: any
 }
 
 export interface IUploadProps {
@@ -27,7 +39,7 @@ export interface IUploadProps {
   /*文件上传的地址*/
   url?: string
   /*文件列表*/
-  fileList: IFile[]
+  fileList: IUserFile[]
   /*文件上传提示*/
   desc?: string
   /*是否是进行头像上传*/

@@ -18,8 +18,11 @@ const emits = defineEmits(['handleSuccess', 'handleDelete', 'handleError', 'hand
 
 const inputRef = ref<HTMLInputElement>()
 
+/*初始化文件列表*/
+function initFileList(list) {}
+
 /*文件上传之前*/
-const handleBeforeUpload = (file: File) => {
+function handleBeforeUpload(file: File) {
   emits('handleBeforeUpload', file)
   if (props.size && file.size > props.size) {
     alert('文件大小超出限制')
@@ -29,7 +32,7 @@ const handleBeforeUpload = (file: File) => {
 }
 
 /*触发文件上传事件*/
-const handleUpload = () => {
+function handleUpload() {
   inputRef.value?.click()
 }
 </script>
