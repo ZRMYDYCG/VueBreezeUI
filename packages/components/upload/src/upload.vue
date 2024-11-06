@@ -18,9 +18,16 @@ const props = withDefaults(defineProps<IUploadProps>(), {
 const emits = defineEmits(['handleSuccess', 'handleDelete', 'handleError', 'handleBeforeUpload'])
 
 const inputRef = ref<HTMLInputElement>()
+const currentFileList = ref<IUserFile[]>(initFileList(props.fileList))
 
 /*上传文件列表*/
-function uploadAction(file: File) {}
+function uploadAction(file: File) {
+  const fileName = file.name
+  if (!fileName) {
+    alert('文件上传失败, 请重新选择文件')
+    return
+  }
+}
 
 /*初始化文件列表*/
 function initFileList(list: IUserFile[]) {
