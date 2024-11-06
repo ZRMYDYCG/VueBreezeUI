@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import type { IUploadProps } from './upload'
 
 const props = withDefaults(defineProps<IUploadProps>(), {
@@ -15,6 +16,8 @@ const props = withDefaults(defineProps<IUploadProps>(), {
 })
 const emits = defineEmits(['handleSuccess', 'handleDelete', 'handleError', 'handleBeforeUpload'])
 
+const inputRef = ref<HTMLInputElement>()
+
 /*文件上传之前*/
 const handleBeforeUpload = (file: File) => {
   emits('handleBeforeUpload', file)
@@ -24,12 +27,18 @@ const handleBeforeUpload = (file: File) => {
   }
   return true
 }
+
+/*触发文件上传事件*/
+const handleUpload = () => {
+  inputRef.value?.click()
+}
 </script>
 
 <template>
   <div class="yq-upload">
     <!--  MDN: Input 输入框 <https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input>  -->
     <input ref="inputRef" type="file" :accept="accept" :multiple="multiple" />
+    <div @click="handleUpload">上传文件</div>
   </div>
 </template>
 
