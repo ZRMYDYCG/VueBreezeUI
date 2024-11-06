@@ -23,15 +23,26 @@ export interface IUploadProps {
   /*文件上传数量限制*/
   limit?: number
   /*图片列表中预览图片的形态*/
-  shape?: 'circle' | 'square'
+  shape?: 'default' | 'circle'
   /*文件上传的地址*/
   url?: string
   /*文件列表*/
-  fileLise: IFile[]
+  fileList: IFile[]
   /*文件上传提示*/
   desc?: string
   /*是否是进行头像上传*/
   avatar?: boolean
   /*是否采用拖拽上传交互*/
   draggable?: boolean
+}
+
+export interface IUploadEmits {
+  /*文件上传前钩子*/
+  handleBeforeUpload: (file: File) => void
+  /*删除文件钩子*/
+  handleRemove: (currentList: File[]) => void
+  /*错误钩子*/
+  handleError: (err: any, currentList: File[]) => void
+  /*文件上传成功钩子*/
+  handleSuccess: (res: any, currentList: File[]) => void
 }
