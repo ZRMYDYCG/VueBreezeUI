@@ -1,5 +1,6 @@
 import type { IRequestOptions } from './upload'
 
+/*MDN:XMLHttpRequest <https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest> */
 export const uploadRequest = (options: IRequestOptions) => {
   const xhr = new XMLHttpRequest()
   const formData = new FormData()
