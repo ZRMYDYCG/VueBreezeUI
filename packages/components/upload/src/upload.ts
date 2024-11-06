@@ -19,9 +19,10 @@ export interface IUploadFile {
   uid: number
   name: string
   raw?: File
-  progress: number
-  status: IUploadStatus
+  size?: number
+  progress?: number
   url?: string
+  status: IUploadStatus
   response?: any
 }
 
