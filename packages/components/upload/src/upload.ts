@@ -35,14 +35,3 @@ export interface IUploadProps {
   /*是否采用拖拽上传交互*/
   draggable?: boolean
 }
-
-export interface IUploadEmits {
-  /*文件上传前钩子*/
-  handleBeforeUpload: (file: File) => void
-  /*删除文件钩子*/
-  handleRemove: (currentList: File[]) => void
-  /*错误钩子*/
-  handleError: (err: any, currentList: File[]) => void
-  /*文件上传成功钩子*/
-  handleSuccess: (res: any, currentList: File[]) => void
-}
