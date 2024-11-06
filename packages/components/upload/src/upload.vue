@@ -24,6 +24,8 @@ const currentFileList = ref<IUploadFile[]>(initFileList(props.fileList))
 const handleSuccess = (uid: number, res: string) => {
   alert('文件上传成功')
   const index = findIndexByUid(uid)
+  currentFileList.value[index].status = 'success'
+  emits('handleSuccess', res, currentFileList.value)
 }
 
 /*处理文件上传失败*/
