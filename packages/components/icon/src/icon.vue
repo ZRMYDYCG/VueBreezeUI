@@ -8,17 +8,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { CSSProperties } from 'vue'
-
-interface IconProps {
-  size?: number
-  color?: string
-  icon?: string
-}
-
-defineOptions({
-  name: 'YqIcon',
-  inheritAttrs: false
-})
+import type { IconProps } from './icon'
 
 const props = defineProps<IconProps>()
 
@@ -30,6 +20,11 @@ const yqIconStyle = computed<CSSProperties>(() => {
     height: `${size}px`,
     color: color
   }
+})
+
+defineOptions({
+  name: 'YqIcon',
+  inheritAttrs: false
 })
 </script>
 
