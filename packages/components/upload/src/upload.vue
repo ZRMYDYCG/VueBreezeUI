@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getRandomUid } from '@yq-design/utils'
-import type { IUploadProps, IUserFile } from './upload'
+import type { IUploadProps, IUserFile, IUploadFile, IRequestOptions } from './upload'
 
 const props = withDefaults(defineProps<IUploadProps>(), {
   accept: '*',
@@ -18,7 +18,22 @@ const props = withDefaults(defineProps<IUploadProps>(), {
 const emits = defineEmits(['handleSuccess', 'handleDelete', 'handleError', 'handleBeforeUpload'])
 
 const inputRef = ref<HTMLInputElement>()
-const currentFileList = ref<IUserFile[]>(initFileList(props.fileList))
+const currentFileList = ref<IUploadFile[]>(initFileList(props.fileList))
+
+/*处理文件上传成功*/
+const handleSuccess = (uid: number, res: string) => {
+  alert('文件上传成功')
+  const index = findIndexByUid(uid)
+}
+
+/*处理文件上传失败*/
+
+/*文件处于上传过程中*/
+
+/*获取某文件对应的索引*/
+function findIndexByUid(uid: number) {
+  return currentFileList.value.findIndex((file) => uid === file.uid)
+}
 
 /*上传文件列表*/
 function uploadAction(file: File) {
@@ -26,6 +41,24 @@ function uploadAction(file: File) {
   if (!fileName) {
     alert('文件上传失败, 请重新选择文件')
     return
+  }
+
+  const uid = getRandomUid()
+  currentFileList.value.push({
+    name: fileName,
+    uid,
+    status: 'uploading',
+    file
+  } as IUploadFile)
+
+  const fileReaderOption: IRequestOptions = {
+    uploadUrl: props.url,
+    selectedFile: file,
+    fileName,
+    uid,
+    onSuccess: handleSuccess
+    // onError: () => {},
+    // onProgress: () => {}
   }
 }
 
@@ -36,7 +69,7 @@ function initFileList(list: IUserFile[]) {
       ...item,
       uid: getRandomUid(),
       status: 'success'
-    }
+    } as IUploadFile
   })
 }
 

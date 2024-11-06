@@ -3,11 +3,11 @@ export type IUploadStatus = 'ready' | 'uploading' | 'success' | 'error' | 'pause
 export interface IRequestOptions {
   uid: number
   uploadUrl: string
-  selectedFile: string
+  selectedFile: File
   fileName: string
-  onSuccess: (uid: number, res: string) => void
-  onError: (uid: number, err: string) => void
-  onProgress: (uid: number, progress: number) => void
+  onSuccess?: (uid: number, res: string) => void
+  onError?: (uid: number, err: string) => void
+  onProgress?: (uid: number, progress: number) => void
 }
 
 export interface IUserFile {
@@ -18,7 +18,7 @@ export interface IUserFile {
 export interface IUploadFile {
   uid: number
   name: string
-  raw?: File
+  raw: File
   size?: number
   progress?: number
   url?: string
