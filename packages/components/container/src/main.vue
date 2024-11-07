@@ -5,7 +5,18 @@ defineOptions({
 </script>
 
 <template>
-  <div class="yq-main"></div>
+  <main class="yq-main">
+    <slot></slot>
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.yq-main {
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 20px;
+}
+</style>
