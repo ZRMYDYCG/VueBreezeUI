@@ -8,3 +8,7 @@ export interface IPropsContainer {
 export interface IPropsHeader {
   height: string
 }
+
+export interface IPropsFooter {
+  height: string
+}
