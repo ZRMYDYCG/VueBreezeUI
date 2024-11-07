@@ -1,5 +1,9 @@
 export type IUploadStatus = 'ready' | 'uploading' | 'success' | 'error' | 'pause'
 
+export type IRequestInstance = {
+  abort: () => void
+}
+
 export interface IRequestOptions {
   uid: number
   uploadUrl: string

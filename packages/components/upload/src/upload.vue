@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getRandomUid } from '@yq-design/utils'
-import type { IUploadProps, IUserFile, IUploadFile, IRequestOptions } from './upload'
+import type {
+  IUploadProps,
+  IUserFile,
+  IUploadFile,
+  IRequestOptions,
+  IRequestInstance
+} from './upload'
+import { uploadRequest } from './ajax'
 
 const props = withDefaults(defineProps<IUploadProps>(), {
   accept: '*',
@@ -19,6 +26,7 @@ const emits = defineEmits(['handleSuccess', 'handleDelete', 'handleError', 'hand
 
 const inputRef = ref<HTMLInputElement>()
 const currentFileList = ref<IUploadFile[]>(initFileList(props.fileList))
+const fileMap = new Map<number, IRequestInstance>()
 
 /*处理文件上传成功*/
 const handleSuccess = (uid: number, res: string) => {
@@ -72,6 +80,8 @@ function uploadAction(file: File) {
     onError: handleError,
     onProgress: handleProgress
   }
+
+  fileMap.set(uid, uploadRequest(fileReaderOption))
 }
 
 /*初始化文件列表*/
