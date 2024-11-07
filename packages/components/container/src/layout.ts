@@ -12,3 +12,10 @@ export interface IPropsHeader {
 export interface IPropsFooter {
   height: string
 }
+
+export interface IPropsAside {
+  /**
+   * @description width of the side section
+   */
+  width?: string
+}
