@@ -5,9 +5,9 @@ export interface IRequestOptions {
   uploadUrl: string
   selectedFile: File
   fileName: string
-  onSuccess?: (uid: number, res: string) => void
-  onError?: (uid: number, err: string) => void
-  onProgress?: (uid: number, progress: number) => void
+  onSuccess: (uid: number, res: string) => void
+  onError: (uid: number, err: string) => void
+  onProgress: (uid: number, progress: number) => void
 }
 
 export interface IUserFile {

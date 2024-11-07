@@ -29,6 +29,12 @@ const handleSuccess = (uid: number, res: string) => {
 }
 
 /*处理文件上传失败*/
+function handleError(uid: number, err: string) {
+  alert('文件上传失败')
+  const index = findIndexByUid(uid)
+  currentFileList.value[index].status = 'error'
+  emits('handleError', err, currentFileList.value)
+}
 
 /*文件处于上传过程中*/
 
@@ -58,9 +64,9 @@ function uploadAction(file: File) {
     selectedFile: file,
     fileName,
     uid,
-    onSuccess: handleSuccess
-    // onError: () => {},
-    // onProgress: () => {}
+    onSuccess: handleSuccess,
+    onError: handleError,
+    onProgress: () => {}
   }
 }
 
