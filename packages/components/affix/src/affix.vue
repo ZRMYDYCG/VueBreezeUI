@@ -11,7 +11,9 @@ defineOptions({
 </script>
 
 <template>
-  <div class="yq-affix"></div>
+  <div class="yq-affix">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>
