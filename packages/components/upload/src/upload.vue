@@ -37,6 +37,10 @@ function handleError(uid: number, err: string) {
 }
 
 /*文件处于上传过程中*/
+function handleProgress(uid: number, progress: number) {
+  const index = findIndexByUid(uid)
+  currentFileList.value[index].progress = progress
+}
 
 /*获取某文件对应的索引*/
 function findIndexByUid(uid: number) {
@@ -66,7 +70,7 @@ function uploadAction(file: File) {
     uid,
     onSuccess: handleSuccess,
     onError: handleError,
-    onProgress: () => {}
+    onProgress: handleProgress
   }
 }
 
