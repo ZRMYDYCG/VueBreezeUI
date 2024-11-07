@@ -4,16 +4,14 @@ import type { IPropsFooter } from './layout'
 import type { CSSProperties } from 'vue'
 
 defineOptions({
-  name: 'YqFooter',
+  name: 'YqFooter'
 })
 
 const props = withDefaults(defineProps<IPropsFooter>(), {
-  height: '100px',
+  height: '100px'
 })
 
-const style = computed(
-    () => (props.height ? { height: props.height } : {}) as CSSProperties,
-)
+const style = computed(() => (props.height ? { height: props.height } : {}) as CSSProperties)
 </script>
 
 <template>
@@ -29,5 +27,4 @@ const style = computed(
   flex-shrink: 0;
   height: 100px;
 }
-</style>
 </style>

@@ -13,6 +13,7 @@ defineOptions({
 <style scoped>
 .yq-main {
   display: block;
+  /*占满*/
   flex: 1;
   flex-basis: auto;
   overflow: auto;
