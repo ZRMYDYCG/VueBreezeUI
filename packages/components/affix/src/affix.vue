@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import type { CSSProperties } from 'vue'
-import { computed, ref } from 'vue'
+import { ref, nextTick } from 'vue'
 import type { IAffixProps } from './affix'
+import { useElementBounding } from '@vueuse/core'
 
-/**
- * @change 固钉状态改变时触发的事件
- * @scroll 滚动时触发的事件
- * */
-const emits = defineEmits(['change', 'scroll'])
 const props = defineProps<IAffixProps>()
 
+const root = ref<HTMLDivElement>()
 const fixed = ref(false)
 
-const rootStyle = computed<CSSProperties>(() => {
-  return {
-    height: '100px',
-    width: '100px'
-  }
-})
+const {
+  height: rootHeight,
+  width: rootWidth,
+  top: roothTop,
+  bottom: rootBottom
+} = useElementBounding(root)
 
-defineOptions({
-  name: 'YqAffix'
+nextTick(() => {
+  console.log(rootHeight.value, rootWidth.value, roothTop.value, rootBottom.value)
 })
 </script>
 
 <template>
-  <div ref="rootRef" class="yq-affix" :style="rootStyle">
-    <div>
+  <div ref="root" class="yq-affix">
+    <div :class="['yq-affix-target', { 'yq-affix--fixed': fixed }]">
       <slot></slot>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped>
+.yq-affix--fixed {
+  position: fixed;
+}
+</style>

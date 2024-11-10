@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@yq-design/theme-chalk/icon.scss'
+import './style.css'
 import App from './App.vue'
 
 createApp(App).mount('#app')

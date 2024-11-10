@@ -8,5 +8,5 @@ export interface IAffixProps {
   /*指定容器(CSS选择器)*/
   target?: string
   /*z-index属性值*/
-  'z-index'?: number
+  zIndex?: number
 }
