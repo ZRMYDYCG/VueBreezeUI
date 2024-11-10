@@ -11,7 +11,7 @@ import YqAffix from '@yq-design/components/affix/src/affix.vue'
 
 <template>
   <div class="h-[2000px]">
-    <YqAffix>
+    <YqAffix position="top">
       <button class="w-20 h-10 bg-orange-500 rounded-lg">Affix</button>
     </YqAffix>
   </div>

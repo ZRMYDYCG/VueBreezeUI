@@ -30,7 +30,15 @@ useEventListener(scrollContainer, 'scroll', () => {
 })
 
 const update = () => {
-  console.log('update')
+  if (!scrollContainer.value) return
+  scrollTop.value =
+    scrollContainer.value instanceof Window
+      ? document.documentElement.scrollTop
+      : scrollContainer.value.scrollTop || 0
+  const { position } = props
+  if (position === 'top') {
+    fixed.value = true
+  }
 }
 
 nextTick(() => {
