@@ -17,6 +17,7 @@ const {
   width: rootWidth,
   top: roothTop,
   bottom: rootBottom,
+  // update: 用于更新元素的边界信息
   update: updateRoot
 } = useElementBounding(root, { windowScroll: false })
 const { height: windowHeight } = useWindowSize()
