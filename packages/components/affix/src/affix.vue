@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick, watchEffect, watch } from 'vue'
+import { ref, nextTick, watchEffect, watch, onMounted } from 'vue'
 import type { IAffixProps } from './affix'
 import { useElementBounding, useWindowSize, useEventListener } from '@vueuse/core'
 
@@ -47,6 +47,11 @@ watch(fixed, (value) => {
   emits('change', value)
 })
 watchEffect(update)
+
+onMounted(() => {
+  scrollContainer.value = window
+  updateRoot()
+})
 </script>
 
 <template>
