@@ -10,9 +10,11 @@ import YqAffix from '@yq-design/components/affix/src/affix.vue'
 </script>
 
 <template>
-  <YqAffix>
-    <button class="w-20 h-10 bg-orange-500">Affix</button>
-  </YqAffix>
+  <div class="h-[2000px]">
+    <YqAffix>
+      <button class="w-20 h-10 bg-orange-500 rounded-lg">Affix</button>
+    </YqAffix>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

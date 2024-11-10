@@ -1,23 +1,51 @@
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
+import { ref, nextTick, watchEffect, watch } from 'vue'
 import type { IAffixProps } from './affix'
-import { useElementBounding } from '@vueuse/core'
+import { useElementBounding, useWindowSize, useEventListener } from '@vueuse/core'
 
 const props = defineProps<IAffixProps>()
+const emits = defineEmits(['change', 'scroll'])
 
 const root = ref<HTMLDivElement>()
+const scrollContainer = ref<HTMLElement | Window>() // 滚动目标容器
+
 const fixed = ref(false)
+const scrollTop = ref(0)
 
 const {
   height: rootHeight,
   width: rootWidth,
   top: roothTop,
-  bottom: rootBottom
-} = useElementBounding(root)
+  bottom: rootBottom,
+  update: updateRoot
+} = useElementBounding(root, { windowScroll: false })
+const { height: windowHeight } = useWindowSize()
+useEventListener(scrollContainer, 'scroll', () => {
+  updateRoot()
+  emits('scroll', {
+    scrollTop: scrollTop.value,
+    fixed: fixed.value
+  })
+})
+
+const update = () => {
+  console.log('update')
+}
 
 nextTick(() => {
-  console.log(rootHeight.value, rootWidth.value, roothTop.value, rootBottom.value)
+  console.log(
+    rootHeight.value,
+    rootWidth.value,
+    roothTop.value,
+    rootBottom.value,
+    windowHeight.value
+  )
 })
+
+watch(fixed, (value) => {
+  emits('change', value)
+})
+watchEffect(update)
 </script>
 
 <template>
