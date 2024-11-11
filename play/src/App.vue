@@ -6,18 +6,11 @@
  * @Description: 
 -->
 <script setup lang="ts">
-import YqAffix from '@yq-design/components/affix/src/affix.vue'
+import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
 </script>
 
 <template>
-  <div class="h-[300px]"></div>
-  <div class="h-[2000px]"></div>
-  <div>
-    <YqAffix position="bottom" :offset="100">
-      <button class="w-20 h-10 bg-orange-500 rounded-lg">Affix</button>
-    </YqAffix>
-  </div>
-  <div class="h-[3000px]"></div>
+  <YqAvatar></YqAvatar>
 </template>
 
 <style scoped lang="scss"></style>

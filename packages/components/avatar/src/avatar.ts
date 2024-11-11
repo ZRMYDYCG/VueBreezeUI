@@ -1,18 +1,18 @@
-interface IAvatarProps {
+export interface IAvatarProps {
   /*头像的背景颜色*/
-  color: string
+  color?: string
   /*头像的形状*/
-  shape: 'circle' | 'square'
+  shape?: 'circle' | 'square'
   /*设置头像的大小*/
-  size: 'large' | 'medium' | 'small' | number
+  size?: 'large' | 'medium' | 'small' | number
   /*图片类头像的地址*/
-  src: string
+  src?: string
   /*图片显示失败的替代文本*/
-  alt: string
+  alt?: string
   /*图标类头像的图标类型*/
-  icon: string
+  icon?: string
   /*跳转的外部链接*/
-  href: string
+  href?: string
   /*跳转模式*/
-  target: '_blank' | '_self'
+  target?: '_blank' | 'self'
 }
