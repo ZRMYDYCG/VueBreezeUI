@@ -22,7 +22,7 @@ export interface IUserFile {
 export interface IUploadFile {
   uid: number
   name: string
-  raw: File
+  raw?: File
   size?: number
   progress?: number
   url?: string

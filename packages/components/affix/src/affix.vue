@@ -6,9 +6,9 @@
  * @Description: 
 -->
 <script setup lang="ts">
-import { ref, nextTick, watchEffect, watch, onMounted, computed } from 'vue'
 import type { CSSProperties } from 'vue'
 import type { IAffixProps } from './affix'
+import { ref, watchEffect, watch, onMounted, computed } from 'vue'
 import { useElementBounding, useWindowSize, useEventListener } from '@vueuse/core'
 
 const props = defineProps<IAffixProps>()
@@ -18,7 +18,10 @@ const target = ref<HTMLElement>()
 const root = ref<HTMLDivElement>()
 const scrollContainer = ref<HTMLElement | Window>() // 滚动目标容器
 const rootStyle = computed<CSSProperties>(() => {
-  return {}
+  return {
+    height: fixed.value ? `${rootHeight.value}px` : '',
+    width: fixed.value ? `${rootWidth.value}px` : ''
+  }
 })
 const targetStyle = computed<CSSProperties>(() => {
   if (!fixed.value) return {}
@@ -30,12 +33,14 @@ const targetStyle = computed<CSSProperties>(() => {
     width: `${rootWidth.value}px`,
     top: props.position === 'top' ? offset + 'px' : '',
     bottom: props.position === 'bottom' ? offset + 'px' : '',
+    transform: transform.value ? `translateY(${transform.value}px)` : '',
     zIndex: props.zIndex
   }
 })
 
 const fixed = ref(false)
 const scrollTop = ref(0)
+const transform = ref(0)
 
 const {
   height: rootHeight,
@@ -60,11 +65,7 @@ const update = () => {
     scrollContainer.value instanceof Window
       ? document.documentElement.scrollTop
       : scrollContainer.value.scrollTop || 0
-  const { position, offset } = props
-
-  console.log('offset', offset)
-  console.log('scrollTop', scrollTop.value)
-  console.log('rootTop', rootTop.value)
+  const { position, offset = 0 } = props
 
   if (position === 'top') {
     if (offset > rootTop.value) {
@@ -74,16 +75,6 @@ const update = () => {
     fixed.value = windowHeight.value - offset < rootBottom.value
   }
 }
-
-nextTick(() => {
-  console.log(
-    rootHeight.value,
-    rootWidth.value,
-    rootTop.value,
-    rootBottom.value,
-    windowHeight.value
-  )
-})
 
 watch(fixed, (value) => {
   emits('change', value)

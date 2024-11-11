@@ -1,3 +1,10 @@
+<!--
+ * @Author: ZRMYDYCG
+ * @Date: 2024-11
+ * @LastEditors: ZRMYDYCG
+ * @LastEditTime: 2024-11
+ * @Description: 
+-->
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getRandomUid } from '@yq-design/utils'
@@ -113,10 +120,11 @@ function handleBeforeUpload(file: File) {
 /* 用户重新（开始）选择文件 */
 function handleInputChange(event: InputEvent) {
   const target = event.target as HTMLInputElement // 断言获取文件列表
-  const files = [...target.files]
+  if (!target.files) return // 检查 files 是否为 null
+  const files = Array.from(target.files) // 使用 Array.from 将 FileList 转换为数组
   if (!files.length) return
   files.forEach((item: File) => {
-    /*校验每一个文件的合理性*/
+    /* 校验每一个文件的合理性 */
     const valid = handleBeforeUpload(item)
     if (item && valid) {
       // 上传文件
