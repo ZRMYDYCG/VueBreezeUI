@@ -118,7 +118,7 @@ function handleBeforeUpload(file: File) {
 }
 
 /* 用户重新（开始）选择文件 */
-function handleInputChange(event: InputEvent) {
+function handleInputChange(event: any) {
   const target = event.target as HTMLInputElement // 断言获取文件列表
   if (!target.files) return // 检查 files 是否为 null
   const files = Array.from(target.files) // 使用 Array.from 将 FileList 转换为数组
