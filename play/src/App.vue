@@ -8,15 +8,15 @@
 <script setup lang="ts">
 import '@yq-design/theme-chalk/index.scss'
 import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
-import { AddCircle } from '@vicons/ionicons5'
+import YqIcon from '@yq-design/components/icon/src/icon.vue'
 </script>
 
 <template>
-  <YqAvatar shape="square" size="large">
-    <template #icon>
-      <AddCircle></AddCircle>
-    </template>
-  </YqAvatar>
+  <YqAvatar shape="square" size="large" icon="AddCircle"> </YqAvatar>
+
+  <YqIcon>
+    <Edit />
+  </YqIcon>
 </template>
 
 <style scoped lang="scss"></style>
