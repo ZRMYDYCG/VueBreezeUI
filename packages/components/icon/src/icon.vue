@@ -16,8 +16,7 @@ const yqIconStyle = computed<CSSProperties>(() => {
   const { size, color } = props
   if (!size && !color) return {}
   return {
-    width: `${size}px`,
-    height: `${size}px`,
+    fontSize: size + 'px',
     color: color
   }
 })
@@ -29,9 +28,9 @@ defineOptions({
 </script>
 
 <template>
-  <div class="yq-icon" :style="yqIconStyle">
+  <i class="yq-icon" :style="yqIconStyle">
     <slot></slot>
-  </div>
+  </i>
 </template>
 
 <style scoped></style>

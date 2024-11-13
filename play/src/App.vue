@@ -14,8 +14,8 @@ import YqIcon from '@yq-design/components/icon/src/icon.vue'
 <template>
   <YqAvatar shape="square" size="large" icon="AddCircle"> </YqAvatar>
 
-  <YqIcon>
-    <Edit />
+  <YqIcon :size="15" color="#1976D2">
+    <component :is="'Plus'"></component>
   </YqIcon>
 </template>
 
