@@ -12,6 +12,7 @@
   "dependencies": {
     "@vueuse/core": "^11.2.0",
     "@yq-design/components": "workspace:*",
+    "@yq-design/hooks": "workspace:^",
     "@yq-design/theme-chalk": "workspace:*",
     "@yq-design/utils": "workspace:*",
     "typescript": "^5.6.3",
