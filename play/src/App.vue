@@ -12,7 +12,7 @@ import { AddCircle } from '@vicons/ionicons5'
 </script>
 
 <template>
-  <YqAvatar shape="square">
+  <YqAvatar shape="square" size="large">
     <template #icon>
       <AddCircle></AddCircle>
     </template>
