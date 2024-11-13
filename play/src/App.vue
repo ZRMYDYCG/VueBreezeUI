@@ -6,16 +6,15 @@
  * @Description: 
 -->
 <script setup lang="ts">
+import '@yq-design/theme-chalk/index.scss'
 import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
+import { AddCircle } from '@vicons/ionicons5'
 </script>
 
 <template>
-  <YqAvatar>
-    <template #header>头部</template>
-    <div><div>传入主体内容</div></div>
-    <template #footer>
-      <img src="https://img.yzcdn.cn/vant/cat.jpeg" alt="cat" />
-      <div>Footer</div>
+  <YqAvatar shape="square">
+    <template #icon>
+      <AddCircle></AddCircle>
     </template>
   </YqAvatar>
 </template>
