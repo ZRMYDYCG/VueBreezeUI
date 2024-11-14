@@ -5,13 +5,10 @@
  * @LastEditTime: 2024-11
  * @Description: 
 -->
-<script setup lang="ts">
-import '@yq-design/theme-chalk/index.scss'
-import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <YqAvatar shape="circle" size="small" icon="User">A</YqAvatar>
+  <router-view></router-view>
 </template>
 
 <style scoped lang="scss"></style>

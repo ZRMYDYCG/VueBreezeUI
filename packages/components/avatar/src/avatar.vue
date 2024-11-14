@@ -68,8 +68,6 @@ const showIcon = computed(() => {
   }
   return false
 })
-
-// const strStyle =
 </script>
 
 <template>
@@ -90,7 +88,7 @@ const showIcon = computed(() => {
       :alt="alt"
     />
     <component v-if="showIcon" :is="icon" />
-    <span v-else-if="showStr">
+    <span v-else-if="showStr" :style="strStyle">
       <slot></slot>
     </span>
   </component>
