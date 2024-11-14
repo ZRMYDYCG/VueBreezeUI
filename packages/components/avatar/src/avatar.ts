@@ -14,7 +14,7 @@ export interface IAvatarProps {
   /*图标类头像的图标类型*/
   icon?: string
   /*跳转的外部链接*/
-  href?: boolean
+  href?: string
   /*跳转模式*/
   target?: '_blank' | '_self'
 }

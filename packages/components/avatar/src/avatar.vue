@@ -72,10 +72,11 @@ const showIcon = computed(() => {
 <template>
   <component
     :is="href ? 'a' : 'div'"
-    :href="src"
+    :href="href"
     :style="avatarStyle"
     class="yq-avatar"
     :class="[`yq-avatar--${shape}`, `yq-avatar--${size}`]"
+    :target="target"
   >
     <img
       v-if="src"
