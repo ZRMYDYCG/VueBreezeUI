@@ -26,15 +26,13 @@ const avatarStyle = computed<CSSProperties>(() => {
         width: `${props.size}px`,
         height: `${props.size}px`,
         lineHeight: `${props.size}px`,
-        fontSize: '18px'
+        backgroundColor: props.color
       }
-      // 处理 Avatar 响应式
     } else if (props.src) {
       return {
         width: `${props.size}px`,
         height: `${props.size}px`,
-        lineHeight: `${props.size}px`,
-        backgroundColor: props.color
+        lineHeight: `${props.size}px`
       }
     } else {
       return {
@@ -45,6 +43,7 @@ const avatarStyle = computed<CSSProperties>(() => {
         backgroundColor: props.color
       }
     }
+    // 处理 Avatar 响应式
   } else if (typeof props.size === 'object') {
     return {}
     // 默认模式下
@@ -88,7 +87,7 @@ const showIcon = computed(() => {
       :alt="alt"
     />
     <component v-if="showIcon" :is="icon" />
-    <span v-else-if="showStr" :style="strStyle">
+    <span v-else-if="showStr">
       <slot></slot>
     </span>
   </component>
