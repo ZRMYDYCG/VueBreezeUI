@@ -73,6 +73,13 @@ import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
         target="_blank"
         >跳转</YqAvatar
       >
+      <YqAvatar
+        shape="circle"
+        size="medium"
+        src="https://img.yzcdn.cn/vant/cat.jpeg"
+        fit="cover"
+        href="https://www.youzan.com"
+      ></YqAvatar>
     </div>
   </div>
 </template>
