@@ -11,13 +11,7 @@ import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
 </script>
 
 <template>
-  <YqAvatar
-    shape="square"
-    size="large"
-    icon="Edit"
-    src="https://pica.zhimg.com/v2-4280d5cc5ffd552c2a773704800e4262_r.jpg"
-  >
-  </YqAvatar>
+  <YqAvatar shape="circle" size="small">A</YqAvatar>
 </template>
 
 <style scoped lang="scss"></style>

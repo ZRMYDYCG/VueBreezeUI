@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import type { CSSProperties } from 'vue'
 import type { IAvatarProps } from './avatar'
-// import { useSlotsExist, useEventListener } from '@yq-design/hooks'
+// import { useSlotsExist } from '@yq-design/hooks'
 
 const props = withDefaults(defineProps<IAvatarProps>(), {
   color: 'rgba(0, 0, 0, 0.2)',
@@ -17,16 +17,41 @@ const props = withDefaults(defineProps<IAvatarProps>(), {
 })
 
 const avatarStyle = computed<CSSProperties>(() => {
-  if (props.src) {
+  // 处理用户 size 传入数字
+  if (typeof props.size === 'number') {
+    if (props.icon) {
+      return {
+        width: `${props.size}px`,
+        height: `${props.size}px`,
+        lineHeight: `${props.size}px`,
+        fontSize: '18px'
+      }
+      // 处理 Avatar 响应式
+    } else if (props.src) {
+      return {
+        width: `${props.size}px`,
+        height: `${props.size}px`,
+        lineHeight: `${props.size}px`,
+        backgroundColor: props.color
+      }
+    } else {
+      return {
+        width: `${props.size}px`,
+        height: `${props.size}px`,
+        lineHeight: `${props.size}px`,
+        fontSize: `${props.size / 2}px`,
+        backgroundColor: props.color
+      }
+    }
+  } else if (typeof props.size === 'object') {
     return {}
+    // 默认模式下
   } else {
     return {
       backgroundColor: props.color
     }
   }
 })
-
-console.log(props)
 </script>
 
 <template>
