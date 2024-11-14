@@ -7,6 +7,8 @@ export interface IAvatarProps {
   size?: 'large' | 'medium' | 'small' | number
   /*图片类头像的地址*/
   src?: string
+  /*图片的适应方式*/
+  fit?: 'fill' | 'contain' | 'cover' | 'none'
   /*图片显示失败的替代文本*/
   alt?: string
   /*图标类头像的图标类型*/

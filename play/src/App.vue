@@ -12,7 +12,7 @@ import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
 
 <template>
   <YqAvatar
-    shape="circle"
+    shape="square"
     size="large"
     icon="Edit"
     src="https://pica.zhimg.com/v2-4280d5cc5ffd552c2a773704800e4262_r.jpg"
