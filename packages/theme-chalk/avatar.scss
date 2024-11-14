@@ -1,8 +1,21 @@
 .yq-avatar {
+  position: relative;
   overflow: hidden;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: auto;
+  outline: none;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  :deep(svg) {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+  &:hover {
+    color: #fff;
+  }
 }
 
 .yq-avatar__img {
