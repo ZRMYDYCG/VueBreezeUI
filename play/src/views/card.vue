@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import YqCard from '@yq-design/components/card/src/card.vue'
+</script>
 
-<template>Card</template>
+<template>
+  <YqCard></YqCard>
+</template>
 
 <style scoped></style>
