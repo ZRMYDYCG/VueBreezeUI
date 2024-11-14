@@ -18,3 +18,12 @@ export interface IAvatarProps {
   /*跳转模式*/
   target?: '_blank' | '_self'
 }
+
+export interface Responsive {
+  xs?: number // <576px 响应式栅格
+  sm?: number // ≥576px 响应式栅格
+  md?: number // ≥768px 响应式栅格
+  lg?: number // ≥992px 响应式栅格
+  xl?: number // ≥1200px 响应式栅格
+  xxl?: number // ≥1600px 响应式栅格
+}
