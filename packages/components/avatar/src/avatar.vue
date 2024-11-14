@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import type { CSSProperties } from 'vue'
 import type { IAvatarProps } from './avatar'
-// import { useSlotsExist } from '@yq-design/hooks'
+import { useSlotsExist } from '@yq-design/hooks'
 
 const props = withDefaults(defineProps<IAvatarProps>(), {
   color: 'rgba(0, 0, 0, 0.2)',
@@ -15,6 +15,8 @@ const props = withDefaults(defineProps<IAvatarProps>(), {
   href: undefined,
   target: '_self'
 })
+
+const slotsExist = useSlotsExist(['default'])
 
 const avatarStyle = computed<CSSProperties>(() => {
   // 处理用户 size 传入数字
@@ -52,6 +54,22 @@ const avatarStyle = computed<CSSProperties>(() => {
     }
   }
 })
+
+const showStr = computed(() => {
+  if (!props.src && !props.icon) {
+    return slotsExist.default
+  }
+  return false
+})
+
+const showIcon = computed(() => {
+  if (!props.src) {
+    return props.icon
+  }
+  return false
+})
+
+// const strStyle =
 </script>
 
 <template>
@@ -71,8 +89,8 @@ const avatarStyle = computed<CSSProperties>(() => {
       }"
       :alt="alt"
     />
-    <component v-if="!src && icon" :is="icon" />
-    <span v-else-if="!src && !icon">
+    <component v-if="showIcon" :is="icon" />
+    <span v-else-if="showStr">
       <slot></slot>
     </span>
   </component>
