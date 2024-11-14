@@ -1,26 +1,29 @@
 .yq-avatar {
   overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.avatar--circle {
+.yq-avatar--circle {
   border-radius: 50%;
 }
 
-.avatar--square {
+.yq-avatar--square {
   border-radius: 4px;
 }
 
-.avatar--large {
+.yq-avatar--large {
   width: 48px;
   height: 48px;
 }
 
-.avatar--medium {
+.yq-avatar--medium {
   width: 32px;
   height: 32px;
 }
 
-.avatar--small {
+.yq-avatar--small {
   width: 24px;
   height: 24px;
 }

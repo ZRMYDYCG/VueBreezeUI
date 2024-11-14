@@ -8,15 +8,16 @@
 <script setup lang="ts">
 import '@yq-design/theme-chalk/index.scss'
 import YqAvatar from '@yq-design/components/avatar/src/avatar.vue'
-import YqIcon from '@yq-design/components/icon/src/icon.vue'
 </script>
 
 <template>
-  <YqAvatar shape="square" size="large" icon="AddCircle"> </YqAvatar>
-
-  <YqIcon :size="15" color="#1976D2">
-    <component :is="'Plus'"></component>
-  </YqIcon>
+  <YqAvatar
+    shape="circle"
+    size="large"
+    icon="Edit"
+    src="https://pica.zhimg.com/v2-4280d5cc5ffd552c2a773704800e4262_r.jpg"
+  >
+  </YqAvatar>
 </template>
 
 <style scoped lang="scss"></style>
