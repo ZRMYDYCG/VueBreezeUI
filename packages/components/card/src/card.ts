@@ -7,8 +7,8 @@ export interface ICardProps {
   border?: boolean
   /*卡片的尺寸*/
   size?: 'small' | 'medium' | 'large'
-  /*鼠标经过, 卡片是否浮动*/
-  hoverSkip?: boolean
+  /*卡片阴影显示时机*/
+  shadow?: 'hover' | 'always' | 'never'
   /*是否添加卡片内容正在加载中的一个状态*/
   loading?: boolean
   /*卡片标题或者自定义DOM*/

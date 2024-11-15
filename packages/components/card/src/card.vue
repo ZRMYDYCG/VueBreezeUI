@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { ICardProps } from './card'
 import { computed } from 'vue'
 import type { CSSProperties } from 'vue'
+import type { ICardProps } from './card'
 
 const props = withDefaults(defineProps<ICardProps>(), {
   /*卡片宽度*/
@@ -10,8 +10,8 @@ const props = withDefaults(defineProps<ICardProps>(), {
   border: false,
   /*卡片的尺寸*/
   size: 'medium',
-  /*鼠标经过, 卡片是否浮动*/
-  hoverSkip: false,
+  /*卡片阴影显示时机*/
+  shadow: 'never',
   /*是否添加卡片内容正在加载中的一个状态*/
   loading: false,
   /*卡片右上角的操作*/
@@ -46,7 +46,10 @@ const cardStyle = computed<CSSProperties>(() => {
       'card-medium': props.size === 'medium',
       'card-small': props.size === 'small',
       'card-large': props.size === 'large',
-      'card--border': props.border
+      'card--border': props.border,
+      'yq-card--hover': props.shadow === 'hover',
+      'yq-card--always': props.shadow === 'always',
+      'yq-card--never': props.shadow === 'never'
     }"
   >
     <div class="yq-card__header" v-if="$slots.header || header" :style="headerStyle">
