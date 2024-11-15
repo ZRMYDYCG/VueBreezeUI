@@ -37,6 +37,8 @@ const cardStyle = computed<CSSProperties>(() => {
     :style="cardStyle"
     :class="{
       'card-medium': props.size === 'medium',
+      'card-small': props.size === 'small',
+      'card-large': props.size === 'large',
       'card--border': props.border
     }"
   >

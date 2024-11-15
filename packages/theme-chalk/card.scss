@@ -21,6 +21,9 @@
   }
 
   .yq-card__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-radius: 0 0 8px 8px;
     transition: paddings 0.3s;
     border-top: 1px solid #f0f0f0;
@@ -34,13 +37,44 @@
 .card-medium {
   .yq-card__header {
     min-height: 56px;
-    padding: 0 24px;
+    padding: 0 20px;
     font-size: 16px;
   }
   .yq-card__body {
-    padding: 24px;
+    padding: 20px;
   }
   .yq-card__footer {
     min-height: 32px;
+    padding: 0 20px;
+  }
+}
+
+.card-small {
+  .yq-card__header {
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 16px;
+  }
+  .yq-card__body {
+    padding: 12px;
+  }
+  .yq-card__footer {
+    min-height: 16px;
+    padding: 0 12px;
+  }
+}
+
+.card-large {
+  .yq-card__header {
+    min-height: 64px;
+    padding: 0 28px;
+    font-size: 16px;
+  }
+  .yq-card__body {
+    padding: 28px;
+  }
+  .yq-card__footer {
+    min-height: 42px;
+    padding: 0 28px;
   }
 }
