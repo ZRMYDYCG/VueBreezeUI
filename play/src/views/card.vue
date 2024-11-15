@@ -3,7 +3,10 @@ import YqCard from '@yq-design/components/card/src/card.vue'
 </script>
 
 <template>
-  <YqCard></YqCard>
+  <YqCard width="100" size="medium" border>
+    <template #header> Header </template>
+    <template #footer> Footer </template>
+  </YqCard>
 </template>
 
 <style scoped></style>

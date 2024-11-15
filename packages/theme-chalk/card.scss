@@ -1,0 +1,46 @@
+.yq-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: width 0.3s;
+  color: rgba(0, 0, 0, 0.88);
+
+  .yq-card__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .yq-card__body {
+    border-radius: 0 0 8px 8px;
+    transition: padding 0.3s;
+  }
+
+  .yq-card__footer {
+    border-radius: 0 0 8px 8px;
+    transition: paddings 0.3s;
+    border-top: 1px solid #f0f0f0;
+  }
+}
+
+.card--border {
+  border: 1px solid #f0f0f0;
+}
+
+.card-medium {
+  .yq-card__header {
+    min-height: 56px;
+    padding: 0 24px;
+    font-size: 16px;
+  }
+  .yq-card__body {
+    padding: 24px;
+  }
+  .yq-card__footer {
+    min-height: 32px;
+  }
+}
