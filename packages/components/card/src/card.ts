@@ -11,8 +11,10 @@ export interface ICardProps {
   hoverSkip?: boolean
   /*是否添加卡片内容正在加载中的一个状态*/
   loading?: boolean
-  /*卡片标题*/
-  title?: string
+  /*卡片标题或者自定义DOM*/
+  header?: string
+  /*卡片底部内容或者自定义DOM*/
+  footer?: string
   /*卡片右上角的操作*/
   extra?: string
   /*标题区域自定义样式*/
