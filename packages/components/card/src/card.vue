@@ -17,9 +17,11 @@ const props = withDefaults(defineProps<ICardProps>(), {
   /*卡片右上角的操作*/
   extra: undefined,
   /*标题区域自定义样式*/
-  headStyle: undefined,
+  headerStyle: undefined,
   /*卡片内容区域自定义样式*/
   bodyStyle: undefined,
+  /*卡片底部内容自定义样式*/
+  footerStyle: undefined,
   /*卡片标题或者自定义DOM*/
   header: undefined,
   /*卡片底部内容或者自定义DOM*/
@@ -44,16 +46,16 @@ const cardStyle = computed<CSSProperties>(() => {
       'card--border': props.border
     }"
   >
-    <div class="yq-card__header" v-if="$slots.header || header">
+    <div class="yq-card__header" v-if="$slots.header || header" :style="headerStyle">
       <slot name="header">{{ header }}</slot>
     </div>
 
-    <div class="yq-card__body">
+    <div class="yq-card__body" :style="bodyStyle">
       <slot></slot>
     </div>
 
-    <div class="yq-card__footer" v-if="$slots.footer || footer">
-      <slot name="footer">{{ footer }}</slot>
+    <div class="yq-card__footer" v-if="$slots.footer || footer" :style="footerStyle">
+      <slot name="footer"> </slot>
     </div>
   </div>
 </template>

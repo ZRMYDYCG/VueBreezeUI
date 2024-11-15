@@ -18,7 +18,11 @@ export interface ICardProps {
   /*卡片右上角的操作*/
   extra?: string
   /*标题区域自定义样式*/
-  headStyle?: CSSProperties
+  headerStyle?: CSSProperties
   /*卡片内容区域自定义样式*/
   bodyStyle?: CSSProperties
+  /*底部区域自定义样式*/
+  footerStyle?: CSSProperties
+  // /*卡片的背景色*/
+  // backgroundColor?: string
 }
