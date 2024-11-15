@@ -23,6 +23,6 @@ export interface ICardProps {
   bodyStyle?: CSSProperties
   /*底部区域自定义样式*/
   footerStyle?: CSSProperties
-  // /*卡片的背景色*/
-  // backgroundColor?: string
+  /*卡片的背景色*/
+  backgroundColor?: string
 }

@@ -14,6 +14,9 @@ import YqCard from '@yq-design/components/card/src/card.vue'
         fontSize: '16px',
         textAlign: 'center'
       }"
+      :body-style="{
+        padding: '0'
+      }"
     >
       <template #header> Header </template>
       <template #default>

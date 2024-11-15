@@ -25,12 +25,15 @@ const props = withDefaults(defineProps<ICardProps>(), {
   /*卡片标题或者自定义DOM*/
   header: undefined,
   /*卡片底部内容或者自定义DOM*/
-  footer: undefined
+  footer: undefined,
+  /*卡片的背景色*/
+  backgroundColor: '#ffffff'
 })
 
 const cardStyle = computed<CSSProperties>(() => {
   return {
-    width: `${props.width}px`
+    width: `${props.width}px`,
+    backgroundColor: props.backgroundColor
   }
 })
 </script>
@@ -55,7 +58,7 @@ const cardStyle = computed<CSSProperties>(() => {
     </div>
 
     <div class="yq-card__footer" v-if="$slots.footer || footer" :style="footerStyle">
-      <slot name="footer"> </slot>
+      <slot name="footer">{{ footer }}</slot>
     </div>
   </div>
 </template>
