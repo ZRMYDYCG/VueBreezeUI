@@ -69,6 +69,29 @@ import YqCard from '@yq-design/components/card/src/card.vue'
         <div>Body</div>
       </template>
     </YqCard>
+
+    <div class="py-10"></div>
+
+    <YqCard
+      width="500"
+      size="large"
+      shadow="hover"
+      border
+      :footer-style="{
+        background: 'pink',
+        color: 'white',
+        fontSize: '16px',
+        textAlign: 'center'
+      }"
+      :body-style="{
+        padding: '0'
+      }"
+    >
+      <template #header> Header </template>
+      <template #default>
+        <div>Body</div>
+      </template>
+    </YqCard>
   </div>
 </template>
 
