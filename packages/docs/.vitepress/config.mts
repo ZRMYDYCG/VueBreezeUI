@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "BreezeUi",
   description: "A vue3 compponents lib",
+  base: "/breeze-ui/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
