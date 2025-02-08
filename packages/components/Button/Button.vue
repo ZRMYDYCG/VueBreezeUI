@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {computed, ref} from "vue"
+import {computed, ref, inject} from "vue"
+import { BUTTON_GROUP_CTX_KEY } from "./const.ts"
 import type { ButtonProps, ButtonEmits, ButtonInstance } from "./interface.ts"
 import { throttle } from "lodash-es";
 import BreIcon from "../Icon/Icon.vue"
@@ -14,12 +15,14 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   useThrottle: true,
   throttleDuration: 300,
 })
-
 const emits = defineEmits<ButtonEmits>()
-
 const slots = defineSlots()
-
 const _ref = ref<HTMLButtonElement>()
+const ctx = inject("BUTTON_GROUP_CTX_KEY", void 0)
+
+const size = computed(() => ctx?.size ?? props?.size ?? "")
+const type = computed(() => ctx?.type ?? (ctx?.type ?? "default"))
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 
 const iconStyle = computed(() => {
   return {
