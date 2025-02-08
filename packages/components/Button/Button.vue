@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import type { ButtonProps } from "./interface.ts"
+import type { ButtonProps, ButtonEmits, ButtonInstance } from "./interface.ts"
+import { throttle } from "lodash-es";
 
 defineOptions({
   name: "bre-button"
@@ -9,11 +10,25 @@ defineOptions({
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: "button",
   nativeType: "button",
+  useThrottle: true,
+  throttleDuration: 300,
 })
+
+const emits = defineEmits<ButtonEmits>()
 
 const slots = defineSlots()
 
 const _ref = ref<HTMLButtonElement>()
+
+const handleBtnClick = (e: MouseEvent) => {
+  emits("click", e)
+}
+
+const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration)
+
+defineExpose<ButtonInstance>({
+  ref: _ref
+})
 </script>
 
 <template>
@@ -32,6 +47,7 @@ const _ref = ref<HTMLButtonElement>()
       'is-loading': loading,
       'is-disabled': disabled,
     }"
+    @click="(e: MouseEvent) => useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)"
   >
     <slot></slot>
   </component>
