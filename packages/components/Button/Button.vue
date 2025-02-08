@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import {computed, ref} from "vue"
 import type { ButtonProps, ButtonEmits, ButtonInstance } from "./interface.ts"
 import { throttle } from "lodash-es";
+import BreIcon from "../Icon/Icon.vue"
 
 defineOptions({
   name: "bre-button"
@@ -20,11 +21,19 @@ const slots = defineSlots()
 
 const _ref = ref<HTMLButtonElement>()
 
+const iconStyle = computed(() => {
+  return {
+    marginRight: slots.default ? "6px" : "0px"
+  }
+})
+
 const handleBtnClick = (e: MouseEvent) => {
   emits("click", e)
 }
 
-const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration)
+const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration, {
+  trailing: false
+})
 
 defineExpose<ButtonInstance>({
   ref: _ref
@@ -35,6 +44,7 @@ defineExpose<ButtonInstance>({
   <component
     :is="tag"
     ref="_ref"
+    :autofocus="autoFocus"
     class="bre-button"
     :type="tag === 'button' ? nativeType : void 0"
     :disabled="disabled  || loading ? true : void 0"
@@ -49,6 +59,12 @@ defineExpose<ButtonInstance>({
     }"
     @click="(e: MouseEvent) => useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)"
   >
+    <template v-if="loading">
+      <slot name="loading">
+        <BreIcon size="1x" class="loading-icon" icon="loadingIcon ?? 'spinner'" :style="iconStyle" spin />
+      </slot>
+    </template>
+    <BreIcon v-if="icon && !loading" :icon="icon" size="1x" :style="iconStyle"></BreIcon>
     <slot></slot>
   </component>
 </template>
