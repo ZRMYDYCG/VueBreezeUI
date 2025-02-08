@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <bre-button></bre-button>
+  <bre-button type="primary" size="small">按钮</bre-button>
 </template>
 
 <style scoped>
