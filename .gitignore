@@ -1,22 +1,74 @@
-# Editor directories and files
-.idea
+# 忽略所有 .log 文件
+*.log
 
-# Package Manager
-node_modules
-.pnpm-debug.log*
+# 忽略临时文件
+*.tmp
+*.temp
 
-# System
+# 忽略操作系统的临时文件
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Bundle
-dist
-coverage
-packages/element-plus/version.ts
+# 忽略编译器生成的文件
+*.class
+*.exe
+*.o
+*.obj
 
-# local env files
-*.local
-.eslintcache
-cypress/screenshots/*
-cypress/videos/*
-tmp
-docs/.vitepress/cache
+# 忽略 IDE 自动生成的配置文件
+.idea/
+.vscode/
+
+# 忽略 maven 和 gradle 的相关文件
+target/
+build/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+pom.xml.backup
+build/libs/
+
+# 忽略 node.js 的相关文件
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 忽略 Python 的相关文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 忽略 IntelliJ IDEA 的相关文件
+out/
+*.iml
+*.ipr
+*.iws
+
+# 忽略 Eclipse 的相关文件
+.classpath
+.project
+.settings/
+
+# 忽略 macOS 的相关文件
+*.DS_Store
+
+# 忽略自动生成的文件
+*.bak
+*.swp
+*.swo
+
+# 忽略 Webpack 的相关文件
+dist/
+*.map
+
+# 忽略特定目录下的所有文件
+/path/to/directory/*
+
+# 忽略特定类型的文件在特定目录下
+/path/to/directory/*.txt
+
+# 忽略特定文件
+specific-file.txt

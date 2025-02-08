@@ -1,4 +1,2 @@
 packages:
-  - play # 组件测试
-  - docs # 组件文档
-  - "packages/**" # 组件源码
+ - "packages/*"
