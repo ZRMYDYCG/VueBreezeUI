@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter @breeze-ui/play dev",
+    "dev": "pnpm run build && pnpm --filter @breeze-ui/play dev",
     "docs:dev": "pnpm --filter @breeze-ui/docs dev",
     "docs:build": "pnpm --filter @breeze-ui/docs build",
-    "storybook": "pnpm --filter @breeze-ui/play storybook",
+    "storybook": "pnpm run build && pnpm --filter @breeze-ui/play storybook",
     "test": "pnpm --filter @breeze-ui/components test",
     "build": "pnpm --filter breeze-ui-lib build"
   },
