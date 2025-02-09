@@ -1,10 +1,14 @@
 {
   "name": "breeze-ui-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Components library for Breeze UI",
   "type": "module",
-  "files": ["dist"],
-  "sideEffects": ["./dist/index.css"],
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/index.css"
+  ],
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
   "types": "./dist/types/core/index.d.ts",
