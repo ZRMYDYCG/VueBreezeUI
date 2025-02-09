@@ -9,7 +9,7 @@
     "docs:build": "pnpm --filter @breeze-ui/docs build",
     "storybook": "pnpm --filter @breeze-ui/play storybook",
     "test": "pnpm --filter @breeze-ui/components test",
-    "build": "pnpm --filter breeze-ui build"
+    "build": "pnpm --filter breeze-ui-lib build"
   },
   "keywords": [],
   "author": "",
@@ -38,7 +38,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
-    "breeze-ui": "workspace:*",
+    "breeze-ui-lib": "workspace:*",
     "lodash-es": "^4.17.21",
     "sass": "^1.84.0",
     "vue": "^3.4.19"
