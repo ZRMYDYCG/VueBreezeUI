@@ -23,7 +23,6 @@ Desktop.ini
 
 # 忽略 maven 和 gradle 的相关文件
 target/
-build/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.next

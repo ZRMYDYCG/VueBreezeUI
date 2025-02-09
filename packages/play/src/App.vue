@@ -2,8 +2,7 @@
 </script>
 
 <template>
-  <bre-button icon="search" type="primary" size="large">按钮</bre-button>
-  <BreIcon name="search" icon="spinner" spin  />
+  <bre-button icon="plus" type="primary" size="large">按钮</bre-button>
 </template>
 
 <style scoped>

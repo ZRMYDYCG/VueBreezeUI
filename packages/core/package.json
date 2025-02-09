@@ -1,15 +1,53 @@
 {
   "name": "breeze-ui",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Components library for Breeze UI",
+  "type": "module",
+  "files": ["dist"],
+  "sideEffects": ["./dist/index.css"],
+  "main": "./dist/umd/index.umd.cjs",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/core/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/core/index.d.ts",
+      "import": "./dist/es/index.js",
+      "require": "./dist/umd/index.umd.cjs"
+    },
+    "./dist": {
+      "import": "./dist/",
+      "require": "./dist/"
+    },
+    "./dist/index.css": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
+    }
   },
-  "dependencies": {
-    "@breeze-ui/components": "workspace:*"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "run-s clean build-only move-style",
+    "build-only": "run-p build-esm build-umd",
+    "build-umd": "vite build --config ./build/vite.umd.config.ts",
+    "build-esm": "vite build --config ./build/vite.es.config.ts",
+    "move-style": "move-file dist/es/index.css dist/index.css",
+    "clean": "rimraf dist",
+    "release": "release-it"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@popperjs/core": "^2.11.8",
+    "async-validator": "^4.2.5"
+  },
+  "devDependencies": {
+    "vite-plugin-dts": "^3.9.1",
+    "@breeze-ui/components": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.19"
+  }
 }

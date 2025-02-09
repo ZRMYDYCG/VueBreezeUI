@@ -5,7 +5,7 @@ import { omit } from "lodash-es"
 import { computed } from "vue";
 
 defineOptions({
-  name: "BreIcon",
+  name: "bre-icon",
   inheritAttrs: false,
 })
 

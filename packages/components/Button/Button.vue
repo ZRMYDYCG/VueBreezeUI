@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { throttle } from "lodash-es"
+import BreIcon from "../Icon/Icon.vue"
 import {computed, ref, inject} from "vue"
 import { BUTTON_GROUP_CTX_KEY } from "./const.ts"
 import type { ButtonProps, ButtonEmits, ButtonInstance } from "./interface.ts"
-import { throttle } from "lodash-es";
-import BreIcon from "../Icon/Icon.vue"
 
 defineOptions({
   name: "bre-button"
@@ -72,6 +72,6 @@ defineExpose<ButtonInstance>({
   </component>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "./style.scss";
 </style>

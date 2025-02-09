@@ -4,7 +4,7 @@ import type { ButtonGroupProps } from "./interface.ts"
 import { BUTTON_GROUP_CTX_KEY } from "./const.ts"
 
 defineOptions({
-  name: "BreButtonGroup",
+  name: "bre-button-group",
 })
 
 const props = defineProps<ButtonGroupProps>()
@@ -22,6 +22,6 @@ provide(BUTTON_GROUP_CTX_KEY, reactive({
   </div>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import "./style.scss";
 </style>
