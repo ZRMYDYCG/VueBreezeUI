@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite'
 import vue from "@vitejs/plugin-vue"
+import { compression } from 'vite-plugin-compression2'
 import { resolve } from "path"
 
 export default defineConfig({
-    plugins: [vue()],
+    plugins: [
+        vue(),
+        compression({
+            include: /.(cjs|css)$/i,
+        }) as any
+    ],
     build: {
         outDir: './dist/umd',
         lib: {

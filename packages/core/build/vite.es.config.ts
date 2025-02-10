@@ -21,6 +21,7 @@ export default defineConfig({
     }) as any],
     build: {
         outDir: './dist/es',
+        cssCodeSplit: true,
         lib: {
             entry: resolve(__dirname, "../index.ts"),
             name: "BreezeUi",
@@ -40,6 +41,12 @@ export default defineConfig({
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name === "style.css") {
                         return "index.css"
+                    }
+                    if(
+                        assetInfo.type === "asset" &&
+                        /\.(css)$/i.test(assetInfo.name as string)
+                    ) {
+                        return 'theme/[name].[ext]'
                     }
                     return assetInfo.name as string
                 },
