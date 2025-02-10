@@ -21,7 +21,7 @@ const _ref = ref<HTMLButtonElement>()
 const ctx = inject("BUTTON_GROUP_CTX_KEY", void 0)
 
 const size = computed(() => ctx?.size ?? props?.size ?? "")
-const type = computed(() => ctx?.type ?? (ctx?.type ?? "default"))
+const type = computed(() => ctx?.type ?? props?.type ?? "default")
 const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 
 const iconStyle = computed(() => {

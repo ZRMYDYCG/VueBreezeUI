@@ -18,7 +18,9 @@
   --bre-button-active-bg-color: var(--bre-button-hover-bg-color);
   --bre-button-outline-color: var(--bre-color-primary-light-5);
   --bre-button-active-color: var(--bre-text-color-primary);
+}
 
+.bre-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +38,8 @@
   vertical-align: middle;
   -webkit-appearance: none;
   background-color: var(--bre-button-bg-color);
-  border: 1px solid var(--bre-button-border-color); /* 假设 --bre-border 是 1px solid */
+  border: var(--bre-border);
+  border-color: var(--bre-button-border-color);
   padding: 8px 15px;
   font-size: var(--bre-font-size-base);
   border-radius: var(--bre-border-radius-base);
@@ -61,30 +64,25 @@
   outline: none;
 }
 
-/* plain */
+/*plain*/
 .bre-button.is-plain {
   --bre-button-hover-text-color: var(--bre-color-primary);
   --bre-button-hover-bg-color: var(--bre-fill-color-blank);
   --bre-button-hover-border-color: var(--bre-color-primary);
 }
 
-/* round */
+/*round*/
 .bre-button.is-round {
   border-radius: var(--bre-border-radius-round);
 }
 
-/* circle */
+/*circle*/
 .bre-button.is-circle {
   border-radius: 50%;
   padding: 8px;
 }
 
-.bre-button.is-circle [class*='bre-icon'] {
-  width: 1em;
-  height: 1em;
-}
-
-/* disabled */
+/*disabled*/
 .bre-button.is-loading,
 .bre-button.is-disabled,
 .bre-button.is-disabled:hover,
@@ -141,7 +139,7 @@
   padding: 12px 19px;
   font-size: var(--bre-font-size-base);
   border-radius: var(--bre-border-radius-base);
-
+  /*circle*/
   &.is-circle {
     border-radius: 50%;
     padding: 12px;
@@ -154,12 +152,11 @@
   padding: 5px 11px;
   font-size: 12px;
   border-radius: calc(var(--bre-border-radius-base) - 1px);
-
+  /*circle*/
   &.is-circle {
     border-radius: 50%;
     padding: 5px;
   }
-
   [class*='bre-icon'] {
     width: 12px;
     height: 12px;
@@ -169,48 +166,39 @@
 .bre-button-group {
   display: inline-block;
   vertical-align: middle;
-
   &::after {
     clear: both;
   }
-
   & > :deep(.bre-button) {
     float: left;
     position: relative;
     margin-left: 0;
-
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right-color: var(--bre-button-group-border-color);
     }
-
     &:last-child {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       border-left-color: var(--bre-button-group-border-color);
     }
-
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
       border-left-color: var(--bre-button-group-border-color);
       border-right-color: var(--bre-button-group-border-color);
     }
-
     &:not(:last-child) {
       margin-right: -1px;
     }
-
     &:first-child:last-child {
       border-top-right-radius: var(--bre-border-radius-base);
       border-bottom-right-radius: var(--bre-border-radius-base);
       border-top-left-radius: var(--bre-border-radius-base);
       border-bottom-left-radius: var(--bre-border-radius-base);
-
       &.is-round {
         border-radius: var(--bre-border-radius-round);
       }
-
       &.is-circle {
         border-radius: 50%;
       }
