@@ -23,7 +23,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "packages/env.d.ts",
+    "env.d.ts",
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/**/*.vue",

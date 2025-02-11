@@ -20,16 +20,18 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node"],
+    "baseUrl": "./",
+    "paths": {
+      "@breeze-ui/components": ["./packages/components/src"],
+    }
   },
   "include": [
-    "packages/env.d.ts",
     "packages/core/index.ts",
     "packages/hooks/**/*.ts",
     "packages/utils/**/*.ts",
-    "packages/components/index.ts",
     "packages/components/**/*.ts",
-    "packages/components/**/*.vue"
   ],
   "exclude": ["packages/components/vitest.config.ts","packages/components/index.test.ts"]
 }
