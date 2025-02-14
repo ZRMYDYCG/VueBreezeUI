@@ -2,17 +2,19 @@
 </script>
 
 <template>
-  <bre-button icon="plus" type="default" size="large">按钮</bre-button>
-  <bre-button icon="plus" type="success" size="small" plain>按钮</bre-button>
-  <bre-collapse>
-    <bre-collapse-item title="标题1">内容1</bre-collapse-item>
-    <bre-collapse-item title="标题2">内容2</bre-collapse-item>
-  </bre-collapse>
-  <div style="max-width: 600px">
-    <bre-alert type="success">Success alert</bre-alert>
-    <bre-alert type="info">Info alert</bre-alert>
-    <bre-alert type="warning">Warning alert</bre-alert>
-    <bre-alert type="danger">Error alert</bre-alert>
+  <div>
+    <h1>按钮组件</h1>
+    <bre-button size="large">按钮</bre-button>
+    <bre-button size="medium">按钮</bre-button>
+    <bre-button size="small">按钮</bre-button>
+
+    <bre-button type="primary" size="large">按钮</bre-button>
+    <bre-button type="primary" size="medium">按钮</bre-button>
+    <bre-button type="primary" size="small">按钮</bre-button>
+
+    <bre-button type="success" size="large">按钮</bre-button>
+    <bre-button type="success" size="large">按钮</bre-button>
+    <bre-button type="success" size="large">按钮</bre-button>
   </div>
 </template>
 
