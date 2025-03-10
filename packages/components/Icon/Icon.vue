@@ -5,7 +5,7 @@ import { omit } from 'lodash-es'
 import { computed } from 'vue'
 
 defineOptions({
-  name: 'bre-icon',
+  name: 'BreIcon',
   inheritAttrs: false
 })
 
@@ -14,6 +14,7 @@ const props = withDefaults(defineProps<IconProps>(), {})
 const filterProps = computed(() => omit(props, ['type', 'color']))
 const customStyle = computed(() => {
   return {
+    // void 0 始终返回 undefined，是获取 undefined 的安全写法
     color: props.color ?? void 0
   }
 })

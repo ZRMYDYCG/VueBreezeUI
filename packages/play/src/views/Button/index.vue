@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
-<template></template>
+<template>Button</template>
 
 <style lang="scss" scoped></style>

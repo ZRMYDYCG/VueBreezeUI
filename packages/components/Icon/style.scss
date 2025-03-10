@@ -1,16 +1,31 @@
 .bre-icon {
-  --bre-icon-color: inherit;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative;
   fill: currentColor;
-  color: var(--bre-icon-color);
+  /*继承父级颜色*/ 
+  color: inherit; 
   font-size: inherit;
 }
 
-@each $val in primary, info, success, warning, danger {
-  .bre-icon--#{$val} {
-    --bre-icon-color: var(--bre-color-#{$val});
-  }
+/*预设颜色类型*/
+.bre-icon--primary {
+  color: #409eff; /*主蓝色*/ 
+}
+
+.bre-icon--info {
+  color: #909399; /*信息灰色*/ 
+}
+
+.bre-icon--success {
+  color: #67c23a; /*成功绿色*/ 
+}
+
+.bre-icon--warning {
+  color: #e6a23c; /*警告黄色*/ 
+}
+
+.bre-icon--danger {
+  color: #f56c6c; /*危险红色*/ 
 }

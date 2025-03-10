@@ -1,88 +1,88 @@
 .bre-alert {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    margin: 8px 0;
-    border-radius: 4px;
-    position: relative;
-    transition: opacity 0.3s;
-  
-    &--success {
-      background-color: #f0f9eb;
-      border: 1px solid #e1f3d8;
-      color: #67c23a;
-    }
-  
-    &--info {
-      background-color: #f4f4f5;
-      border: 1px solid #e9e9eb;
-      color: #909399;
-    }
-  
-    &--warning {
-      background-color: #fdf6ec;
-      border: 1px solid #faecd8;
-      color: #e6a23c;
-    }
-  
-    &--danger {
-      background-color: #fef0f0;
-      border: 1px solid #fde2e2;
-      color: #f56c6c;
-    }
-  
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 8px 0;
+  border-radius: 4px;
+  position: relative;
+  transition: opacity 0.3s;
+
+  &--success {
+    background-color: #f0f9eb;
+    border: 1px solid #e1f3d8;
+    color: #67c23a;
+  }
+
+  &--info {
+    background-color: #f4f4f5;
+    border: 1px solid #e9e9eb;
+    color: #909399;
+  }
+
+  &--warning {
+    background-color: #fdf6ec;
+    border: 1px solid #faecd8;
+    color: #e6a23c;
+  }
+
+  &--danger {
+    background-color: #fef0f0;
+    border: 1px solid #fde2e2;
+    color: #f56c6c;
+  }
+
+  &.is-center {
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__icon {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: 13px;
+    line-height: 18px;
+    display: block;
+
     &.is-center {
-      justify-content: center;
       text-align: center;
     }
-  
-    &__icon {
-      margin-right: 8px;
-      font-size: 16px;
+  }
+
+  &__description {
+    font-size: 12px;
+    margin: 5px 0 0;
+    line-height: 18px;
+    opacity: 0.8;
+
+    &.is-center {
+      text-align: center;
     }
-  
-    &__content {
-      flex: 1;
-      min-width: 0;
+  }
+
+  &__close {
+    cursor: pointer;
+    margin-left: 8px;
+    color: #999;
+
+    &:hover {
+      color: #666;
     }
-  
-    &__title {
-      font-size: 13px;
-      line-height: 18px;
-      display: block;
-  
-      &.is-center {
-        text-align: center;
-      }
-    }
-  
-    &__description {
+
+    .bre-icon-close {
       font-size: 12px;
-      margin: 5px 0 0;
-      line-height: 18px;
-      opacity: 0.8;
-  
-      &.is-center {
-        text-align: center;
-      }
-    }
-  
-    &__close {
-      cursor: pointer;
-      margin-left: 8px;
-      color: #999;
-  
-      &:hover {
-        color: #666;
-      }
-  
-      .bre-icon-close {
-        font-size: 12px;
-      }
     }
   }
-  
-  .bre-alert-fade-enter-from,
-  .bre-alert-fade-leave-to {
-    opacity: 0;
-  }
+}
+
+.bre-alert-fade-enter-from,
+.bre-alert-fade-leave-to {
+  opacity: 0;
+}
