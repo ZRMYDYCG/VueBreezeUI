@@ -1,10 +1,10 @@
-export * from "./install.ts"
-export * from "./error.ts"
+export * from './install.ts'
+export * from './error.ts'
 
 export const typeIconMap = new Map([
-    ["info", "circle-info"],
-    ["success", "check-circle"],
-    ["warning", "circle-exclamation"],
-    ["danger", "circle-xmark"],
-    ["error", "circle-xmark"],
-]);
+  ['info', 'circle-info'],
+  ['success', 'check-circle'],
+  ['warning', 'circle-exclamation'],
+  ['danger', 'circle-xmark'],
+  ['error', 'circle-xmark']
+])

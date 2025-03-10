@@ -1,0 +1,205 @@
+.bre-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  // disabled 状态
+  &[disabled],
+  &.is-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // loading 状态
+  &.is-loading {
+    span {
+      display: none;
+    }
+
+    .loading-icon {
+      animation: loading-icon-spin 1s linear infinite;
+    }
+
+    @keyframes loading-icon-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  // 圆按钮样式
+  &.is-circle {
+    width: 32px;
+    height: 32px;
+
+    svg,
+    i {
+      margin: 0;
+      transform: scale(0.7);
+    }
+  }
+
+  // 轮廓按钮
+  &.is-plain {
+    background-color: transparent;
+    border-color: currentColor;
+  }
+
+  // 小号按钮
+  &--small {
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    svg,
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  // 默认大小按钮
+  &--default {
+    padding: 8px 16px;
+    border-radius: 4px;
+
+    svg,
+    i {
+      margin-right: 6px;
+    }
+  }
+
+  // 大号按钮
+  &--large {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+
+    svg,
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  // 圆角样式
+  &.is-round {
+    border-radius: 9999px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  // 默认按钮样式
+  &--default {
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #d9d9d9;
+
+    &:hover,
+    &:focus {
+      background-color: #e5e5e5;
+    }
+
+    &.is-plain {
+      color: #333;
+      border: 1px solid #d9d9d9;
+
+      &:hover,
+      &:focus {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+
+  // 主要按钮样式
+  &--primary {
+    color: #fff;
+    background-color: #1890ff;
+    border: 1px solid #1890ff;
+
+    &:hover,
+    &:focus {
+      background-color: darken(#1890ff, 10%);
+      border-color: darken(#1890ff, 10%);
+    }
+
+    &.is-plain {
+      color: #1890ff;
+      background-color: transparent;
+      border: 1px solid #1890ff;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: #1890ff;
+        border-color: #1890ff;
+      }
+    }
+  }
+
+  // 成功按钮样式
+  &--success {
+    color: #fff;
+    background-color: #52c41a;
+    border: 1px solid #52c41a;
+
+    &:hover,
+    &:focus {
+      background-color: darken(#52c41a, 10%);
+      border-color: darken(#52c41a, 10%);
+    }
+
+    &.is-plain {
+      color: #52c41a;
+      background-color: transparent;
+      border: 1px solid #52c41a;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: #52c41a;
+        border-color: #52c41a;
+      }
+    }
+  }
+
+  // 危险按钮样式
+  &--danger {
+    color: #fff;
+    background-color: #ff4d4f;
+    border: 1px solid #ff4d4f;
+
+    &:hover,
+    &:focus {
+      background-color: darken(#ff4d4f, 10%);
+      border-color: darken(#ff4d4f, 10%);
+    }
+
+    &.is-plain {
+      color: #ff4d4f;
+      background-color: transparent;
+      border: 1px solid #ff4d4f;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: #ff4d4f;
+        border-color: #ff4d4f;
+      }
+    }
+  }
+}

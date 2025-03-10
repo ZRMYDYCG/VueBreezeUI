@@ -1,22 +1,22 @@
-import { isString } from "lodash-es";
+import { isString } from 'lodash-es'
 
 class ErUIError extends Error {
-    constructor(message: string) {
-        super(message);
-        this.name = "ErUIError";
-    }
+  constructor(message: string) {
+    super(message)
+    this.name = 'ErUIError'
+  }
 }
 
 export function throwError(scope: string, msg: string) {
-    throw new ErUIError(`[${scope}] ${msg}`);
+  throw new ErUIError(`[${scope}] ${msg}`)
 }
 
-export function debugWarn(error: Error): void;
-export function debugWarn(scope: string, msg: string): void;
+export function debugWarn(error: Error): void
+export function debugWarn(scope: string, msg: string): void
 export function debugWarn(scope: string | Error, msg?: string) {
-    // 非正式环境
-    if (process.env.NODE_ENV !== "production") {
-        const err = isString(scope) ? new ErUIError(`[${scope}] ${msg}`) : scope
-        console.warn(err)
-    }
+  // 非正式环境
+  if (process.env.NODE_ENV !== 'production') {
+    const err = isString(scope) ? new ErUIError(`[${scope}] ${msg}`) : scope
+    console.warn(err)
+  }
 }

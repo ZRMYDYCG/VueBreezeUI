@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import {provide, reactive, toRef} from "vue"
-import type { ButtonGroupProps } from "./interface.ts"
-import { BUTTON_GROUP_CTX_KEY } from "./const.ts"
+import { provide, reactive, toRef } from 'vue'
+import type { ButtonGroupProps } from './interface.ts'
+import { BUTTON_GROUP_CTX_KEY } from './const.ts'
 
 defineOptions({
-  name: "bre-button-group",
+  name: 'bre-button-group'
 })
 
 const props = defineProps<ButtonGroupProps>()
 
-provide(BUTTON_GROUP_CTX_KEY, reactive({
-  size: toRef(props, "size"),
-  type: toRef(props, "type"),
-  disabled: toRef(props, "disabled"),
-}))
+provide(
+  BUTTON_GROUP_CTX_KEY,
+  reactive({
+    size: toRef(props, 'size'),
+    type: toRef(props, 'type'),
+    disabled: toRef(props, 'disabled')
+  })
+)
 </script>
 
 <template>
@@ -23,5 +26,5 @@ provide(BUTTON_GROUP_CTX_KEY, reactive({
 </template>
 
 <style lang="scss" scoped>
-@import "./style.scss";
+@import './style.scss';
 </style>

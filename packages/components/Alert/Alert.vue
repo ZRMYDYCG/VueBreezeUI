@@ -1,63 +1,63 @@
 <script setup lang="ts">
-import type { AlertProps, AlertEmits, AlertInstance } from "./interface";
-import { ref, useSlots, computed } from "vue";
-import { typeIconMap } from "@breeze-ui/utils";
-import BreIcon from "../Icon/Icon.vue";
+import type { AlertProps, AlertEmits, AlertInstance } from './interface'
+import { ref, useSlots, computed } from 'vue'
+import { typeIconMap } from '@breeze-ui/utils'
+import BreIcon from '../Icon/Icon.vue'
 
 defineOptions({
-  name: "BreAlert",
-});
+  name: 'BreAlert'
+})
 const props = withDefaults(defineProps<AlertProps>(), {
-  effect: "light",
-  type: "info",
-  closable: true,
-});
-const emits = defineEmits<AlertEmits>();
-const slots = useSlots();
+  effect: 'light',
+  type: 'info',
+  closable: true
+})
+const emits = defineEmits<AlertEmits>()
+const slots = useSlots()
 
-const visible = ref(true);
+const visible = ref(true)
 
-const iconName = computed(() => typeIconMap.get(props.type) ?? "circle-info");
-const withDescription = computed(() => props.description || slots.default);
+const iconName = computed(() => typeIconMap.get(props.type) ?? 'circle-info')
+const withDescription = computed(() => props.description || slots.default)
 
 function close() {
-  visible.value = false;
-  emits("close");
+  visible.value = false
+  emits('close')
 }
 
 function open() {
-  visible.value = true;
+  visible.value = true
 }
 
 defineExpose<AlertInstance>({
   open,
-  close,
-});
+  close
+})
 </script>
 
 <template>
   <transition name="bre-alert-fade">
     <div
-        v-show="visible"
-        class="bre-alert"
-        role="alert"
-        :class="{
+      v-show="visible"
+      class="bre-alert"
+      role="alert"
+      :class="{
         [`bre-alert__${type}`]: type,
         [`bre-alert__${effect}`]: effect,
-        'text-center': center,
+        'text-center': center
       }"
     >
       <bre-icon
-          v-if="showIcon"
-          class="bre-alert__icon"
-          :class="{ 'big-icon': withDescription }"
-          :icon="iconName"
+        v-if="showIcon"
+        class="bre-alert__icon"
+        :class="{ 'big-icon': withDescription }"
+        :icon="iconName"
       />
       <div class="bre-alert__content">
         <span
-            class="bre-alert__title"
-            :class="{ 'with-desc': withDescription }"
-            :style="{ display: center && !showIcon ? 'flow' : 'inline' }"
+          class="bre-alert__title"
+          :class="{ 'with-desc': withDescription }"
+          :style="{ display: center && !showIcon ? 'flow' : 'inline' }"
         >
           <slot name="title">{{ title }}</slot>
         </span>
@@ -73,5 +73,5 @@ defineExpose<AlertInstance>({
 </template>
 
 <style scoped>
-@import "./style.scss";
+@import './style.scss';
 </style>

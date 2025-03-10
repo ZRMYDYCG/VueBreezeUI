@@ -1,4 +1,4 @@
-import type { InjectionKey } from "vue"
-import type { CollapseContext } from "./interface.ts"
+import type { InjectionKey } from 'vue'
+import type { CollapseContext } from './interface.ts'
 
-export const COLLAPSE_CTX_KEY: InjectionKey<CollapseContext> = Symbol("collapseContext")
+export const COLLAPSE_CTX_KEY: InjectionKey<CollapseContext> = Symbol('collapseContext')

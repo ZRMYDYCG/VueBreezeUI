@@ -1,37 +1,37 @@
 <script setup lang="ts">
-import { throttle } from "lodash-es"
-import BreIcon from "../Icon/Icon.vue"
-import {computed, ref, inject} from "vue"
-import { BUTTON_GROUP_CTX_KEY } from "./const.ts"
-import type { ButtonProps, ButtonEmits, ButtonInstance } from "./interface.ts"
+import { throttle } from 'lodash-es'
+import BreIcon from '../Icon/Icon.vue'
+import { computed, ref, inject } from 'vue'
+import { BUTTON_GROUP_CTX_KEY } from './const.ts'
+import type { ButtonProps, ButtonEmits, ButtonInstance } from './interface.ts'
 
 defineOptions({
-  name: "bre-button"
+  name: 'bre-button'
 })
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  tag: "button",
-  nativeType: "button",
+  tag: 'button',
+  nativeType: 'button',
   useThrottle: true,
-  throttleDuration: 300,
+  throttleDuration: 300
 })
 const emits = defineEmits<ButtonEmits>()
 const slots = defineSlots()
 const _ref = ref<HTMLButtonElement>()
-const ctx = inject("BUTTON_GROUP_CTX_KEY", void 0)
+const ctx = inject('BUTTON_GROUP_CTX_KEY', void 0)
 
-const size = computed(() => ctx?.size ?? props?.size ?? "")
-const type = computed(() => ctx?.type ?? props?.type ?? "default")
+const size = computed(() => ctx?.size ?? props?.size ?? '')
+const type = computed(() => ctx?.type ?? props?.type ?? 'default')
 const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 
 const iconStyle = computed(() => {
   return {
-    marginRight: slots.default ? "6px" : "0px"
+    marginRight: slots.default ? '6px' : '0px'
   }
 })
 
 const handleBtnClick = (e: MouseEvent) => {
-  emits("click", e)
+  emits('click', e)
 }
 
 const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration, {
@@ -53,7 +53,7 @@ defineExpose<ButtonInstance>({
     :autofocus="autoFocus"
     class="bre-button"
     :type="tag === 'button' ? nativeType : void 0"
-    :disabled="disabled  || loading ? true : void 0"
+    :disabled="disabled || loading ? true : void 0"
     :class="{
       [`bre-button--${size}`]: size,
       [`bre-button--${type}`]: type,
@@ -61,13 +61,19 @@ defineExpose<ButtonInstance>({
       'is-round': round,
       'is-circle': circle,
       'is-loading': loading,
-      'is-disabled': disabled,
+      'is-disabled': disabled
     }"
-    @click="(e: MouseEvent) => useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)"
+    @click="(e: MouseEvent) => (useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e))"
   >
     <template v-if="loading">
       <slot name="loading">
-        <BreIcon size="1x" class="loading-icon" icon="loadingIcon ?? 'spinner'" :style="iconStyle" spin />
+        <BreIcon
+          size="1x"
+          class="loading-icon"
+          icon="loadingIcon ?? 'spinner'"
+          :style="iconStyle"
+          spin
+        />
       </slot>
     </template>
     <BreIcon v-if="icon && !loading" :icon="icon" size="1x" :style="iconStyle"></BreIcon>
@@ -76,5 +82,5 @@ defineExpose<ButtonInstance>({
 </template>
 
 <style lang="scss" scoped>
-@import "./style.scss";
+@import './style.scss';
 </style>
