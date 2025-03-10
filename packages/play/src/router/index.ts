@@ -21,6 +21,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/icon',
     name: 'Icon',
     component: () => import('../views/Icon/index.vue')
+  },
+  {
+    path: '/collapse',
+    name: 'Collapse',
+    component: () => import('../views/Collapse/index.vue')
   }
 ]
 

@@ -33,11 +33,15 @@ function handleClick() {
       @click="handleClick"
     >
       <span class="bre-collapse-item__title">
+        <!-- 支持自定义Title -->
         <slot name="title">
           {{ title }}
         </slot>
       </span>
-      <bre-icon icon="angle-right" class="header-angle" />
+      <!--   支持自定义右侧   -->
+      <slot name="icon" :is-active="isActive">
+        <bre-icon icon="angle-right" class="header-angle" />
+      </slot>
     </div>
     <transition name="slide" v-on="transitionEvents">
       <div class="bre-collapse-item__wrapper" v-show="isActive">
