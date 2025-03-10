@@ -1,100 +1,88 @@
 .bre-alert {
-  --bre-alert-padding: 8px 16px;
-  --bre-alert-border-radius-base: var(--bre-border-radius-base);
-  --bre-alert-bg-color: var(--bre-color-white);
-  --bre-alert-title-font-size: 14px;
-  --bre-alert-title-font-size-with-desc: 16px;
-  --bre-alert-desc-font-size: 14px;
-  --bre-alert-text-color: var(--bre-text-color-primary);
-  --bre-alert-top-margin: 20px;
-  --bre-alert-icon-size: 16px;
-  --bre-alert-icon-margin: 8px;
-  --bre-alert-big-icon-size: 28px;
-  --bre-alert-big-icon-margin: 12px;
-}
-.bre-alert {
-  padding: var(--bre-alert-padding);
-  margin: 0;
-  box-sizing: border-box;
-  border-radius: var(--bre-alert-border-radius-base);
-  position: relative;
-  background-color: var(--bre-alert-bg-color);
-  overflow: hidden;
-  opacity: 1;
-  display: flex;
-  align-items: center;
-  transition: opacity var(--bre-transition-duration);
-  margin-top: var(--bre-alert-top-margin);
-  .bre-alert__icon {
-    color: var(--bre-alert-text-color);
-    font-size: var(--bre-alert-icon-size);
-    width: var(--bre-alert-icon-size);
-    margin-right: var(--bre-alert-icon-margin);
-    &.big-icon {
-      font-size: var(--bre-alert-big-icon-size);
-      width: var(--bre-alert-big-icon-size);
-      margin-right: var(--bre-alert-big-icon-margin);
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    margin: 8px 0;
+    border-radius: 4px;
+    position: relative;
+    transition: opacity 0.3s;
+  
+    &--success {
+      background-color: #f0f9eb;
+      border: 1px solid #e1f3d8;
+      color: #67c23a;
     }
-  }
-  .bre-alert__content {
-    color: var(--bre-alert-text-color);
-    vertical-align: text-top;
-    .bre-alert__title {
-      font-size: var(--bre-alert-title-font-size);
-      line-height: 24px;
-      &.with-desc {
-        font-size: var(--bre-alert-title-font-size-with-desc);
-      }
+  
+    &--info {
+      background-color: #f4f4f5;
+      border: 1px solid #e9e9eb;
+      color: #909399;
     }
-    .bre-alert__description {
-      font-size: var(--bre-alert-desc-font-size);
-      margin: 0;
+  
+    &--warning {
+      background-color: #fdf6ec;
+      border: 1px solid #faecd8;
+      color: #e6a23c;
     }
-
-    .bre-alert__close {
-      font-size: var(--bre-alert-close-font-size);
-      opacity: 1;
-      position: absolute;
-      top: 12px;
-      right: 15px;
-      cursor: pointer;
-      :deep(.bre-icon) {
-        vertical-align: top;
-      }
+  
+    &--danger {
+      background-color: #fef0f0;
+      border: 1px solid #fde2e2;
+      color: #f56c6c;
     }
-    &.bre-alert__light {
-      .bre-alert__close {
-        color: var(--bre-text-color-placeholder);
-      }
-    }
-    &.bre-alert__dark {
-      .bre-alert__close {
-        color: var(--bre-color-white);
-      }
-    }
-  }
-
-  &.text-center {
-    justify-content: center;
-    span,
-    p {
+  
+    &.is-center {
+      justify-content: center;
       text-align: center;
     }
+  
+    &__icon {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+  
+    &__content {
+      flex: 1;
+      min-width: 0;
+    }
+  
+    &__title {
+      font-size: 13px;
+      line-height: 18px;
+      display: block;
+  
+      &.is-center {
+        text-align: center;
+      }
+    }
+  
+    &__description {
+      font-size: 12px;
+      margin: 5px 0 0;
+      line-height: 18px;
+      opacity: 0.8;
+  
+      &.is-center {
+        text-align: center;
+      }
+    }
+  
+    &__close {
+      cursor: pointer;
+      margin-left: 8px;
+      color: #999;
+  
+      &:hover {
+        color: #666;
+      }
+  
+      .bre-icon-close {
+        font-size: 12px;
+      }
+    }
   }
-}
-
-.bre-alert-fade-enter-from,
-.bre-alert-fade-leave-to {
-  opacity: 0;
-}
-
-@each $val in success, warning, info, danger {
-  .bre-alert--#{$val}.bre-alert--light {
-    --bre-alert-text-color: var(--bre-color-#{$val});
-    --bre-alert-bg-color: var(--bre-color-#{$val}-light-9);
+  
+  .bre-alert-fade-enter-from,
+  .bre-alert-fade-leave-to {
+    opacity: 0;
   }
-  .bre-alert--#{$val}.bre-alert--dark {
-    --bre-alert-text-color: var(--bre-color-white);
-    --bre-alert-bg-color: var(--bre-color-#{$val});
-  }
-}

@@ -1,19 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { BreAlert } from '../../components'
+</script>
 
 <template>
   <div>
-    <h1>按钮组件</h1>
-    <bre-button loading size="large">按钮</bre-button>
-    <bre-button size="medium">按钮</bre-button>
-    <bre-button size="small">按钮</bre-button>
-
-    <bre-button type="primary" size="large">按钮</bre-button>
-    <bre-button type="primary" size="medium">按钮</bre-button>
-    <bre-button type="primary" size="small">按钮</bre-button>
-
-    <bre-button type="success" size="large">按钮</bre-button>
-    <bre-button type="success" size="large">按钮</bre-button>
-    <bre-button type="success" size="large">按钮</bre-button>
+    <h1>Alert组件</h1>
+    <bre-alert closable type="success" title="Success Alert"> </bre-alert>
   </div>
 </template>
 
