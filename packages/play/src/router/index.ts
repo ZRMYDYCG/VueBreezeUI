@@ -31,6 +31,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/card',
     name: 'Card',
     component: () => import('../views/Card/index.vue')
+  },
+  {
+    path: '/drawer',
+    name: 'Drawer',
+    component: () => import('../views/Drawer/index.vue')
   }
 ]
 
