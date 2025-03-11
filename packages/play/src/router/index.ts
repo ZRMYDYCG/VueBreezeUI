@@ -36,6 +36,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/drawer',
     name: 'Drawer',
     component: () => import('../views/Drawer/index.vue')
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: () => import('../views/Message/index.vue')
   }
 ]
 

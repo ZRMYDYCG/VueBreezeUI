@@ -1,0 +1,68 @@
+$types: (
+        success: #67c23a,
+        warning: #e6a23c,
+        info: #909399,
+        error: #f56c6c
+);
+
+.bre-message {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+
+  @each $type, $color in $types {
+    &--#{$type} {
+      color: $color;
+      border: 1px solid rgba($color, 0.2);
+
+      &.is-plain {
+        background-color: rgba($color, 0.1);
+        border-color: rgba($color, 0.3);
+      }
+    }
+  }
+
+  &.is-center {
+    justify-content: center;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__repeat {
+    margin-left: 8px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+  }
+
+  &__close {
+    margin-left: 15px;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+  }
+}
+
+.bre-message-fade-enter-from,
+.bre-message-fade-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 100%);
+}
