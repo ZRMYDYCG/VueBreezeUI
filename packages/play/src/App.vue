@@ -78,7 +78,7 @@ onUnmounted(() => {
         </template>
       </div>
     </div>
-    <div class="main flex-1">
+    <div class="main flex-1 bg-black">
       <div
         ref="header"
         class="header flex justify-between items-center bg-gray-100 w-full py-4 px-3"
