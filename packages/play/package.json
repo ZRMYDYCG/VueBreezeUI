@@ -20,6 +20,8 @@
     "@storybook/vue3": "8.5.3",
     "@storybook/vue3-vite": "8.5.3",
     "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/babel-plugin-jsx": "^1.4.0",
     "storybook": "8.5.3"
   },
   "dependencies": {

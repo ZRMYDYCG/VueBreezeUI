@@ -18,9 +18,17 @@ export default defineConfig({
       }
     }),
     vueJsx({
-      // 开启自动 h 函数注入
-      transformOn: true,
-      optimize: true
+      // 新增 babel 插件配置
+      babelPlugins: [
+        [
+          '@vue/babel-plugin-jsx',
+          {
+            autoImport: true, // 自动注入 h 函数
+            transformOn: true,
+            mergeProps: true
+          }
+        ]
+      ]
     })
   ],
   define: {
