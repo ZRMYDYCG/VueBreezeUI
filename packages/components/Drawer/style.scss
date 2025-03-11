@@ -1,0 +1,102 @@
+$drawer-bg-color: #fff;
+$modal-bg-color: rgba(0, 0, 0, 0.5);
+$header-padding: 16px;
+$close-size: 40px;
+
+.bre-drawer {
+  position: fixed;
+  background: $drawer-bg-color;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $modal-bg-color;
+  }
+
+  &__header {
+    position: relative;
+    padding: $header-padding;
+    font-size: 18px;
+    font-weight: 500;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 50%;
+    right: $header-padding;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: $close-size;
+    height: $close-size;
+
+    &:hover {
+      color: #409eff;
+    }
+  }
+
+  &__body {
+    padding: $header-padding;
+    height: calc(100% - 60px);
+    overflow: auto;
+  }
+
+  // 方向处理
+  &.direction-ltr {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+  }
+
+  &.direction-rtl {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+  }
+
+  &.direction-ttb {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+  }
+
+  &.direction-btt {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+  }
+}
+
+// 动画效果
+.bre-drawer-fade-enter-active,
+.bre-drawer-fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.bre-drawer-fade-enter-from,
+.bre-drawer-fade-leave-to {
+  opacity: 0;
+}
+
+.bre-drawer-slide-rtl-enter-active,
+.bre-drawer-slide-rtl-leave-active {
+  transition: transform 0.3s;
+}
+
+.bre-drawer-slide-rtl-enter-from,
+.bre-drawer-slide-rtl-leave-to {
+  transform: translateX(100%);
+}
