@@ -127,7 +127,8 @@ const renderDrawerContent = computed(() =>
         ]),
       h('div', { class: 'bre-drawer__body' }, [
         (!props.destroyOnClose || visible.value || rendered.value) && slots.default?.()
-      ])
+      ]),
+      slots.footer?.() && h('div', { class: 'bre-drawer__footer' }, slots.footer?.())
     ]
   )
 )

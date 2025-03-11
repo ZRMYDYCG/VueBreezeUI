@@ -14,7 +14,12 @@ const visible = ref(false)
 
     <form class="settings-form">
       <!-- 表单内容 -->
+      <input type="text" placeholder="请输入姓名" />
     </form>
+
+    <template #footer>
+      <BreButton @click="visible = false">关闭</BreButton>
+    </template>
   </BreDrawer>
 
   <BreButton @click="visible = true">打开设置面板</BreButton>

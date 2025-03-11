@@ -27,6 +27,16 @@ $close-size: 40px;
     align-items: center;
   }
 
+  &__footer {
+    background-color: #f5f7fa;
+    border-top: 1px solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 16px;
+    height: 50px;
+  }
+
   &__close {
     position: absolute;
     top: 50%;
@@ -46,7 +56,7 @@ $close-size: 40px;
 
   &__body {
     padding: $header-padding;
-    height: calc(100% - 60px);
+    height: calc(100% - 110px);
     overflow: auto;
   }
 
