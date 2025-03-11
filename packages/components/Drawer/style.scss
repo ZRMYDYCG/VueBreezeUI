@@ -101,6 +101,7 @@ $close-size: 40px;
   opacity: 0;
 }
 
+// RTL 动画
 .bre-drawer-slide-rtl-enter-active,
 .bre-drawer-slide-rtl-leave-active {
   transition: transform 0.3s;
@@ -110,3 +111,37 @@ $close-size: 40px;
 .bre-drawer-slide-rtl-leave-to {
   transform: translateX(100%);
 }
+
+// LTR 动画
+.bre-drawer-slide-ltr-enter-active,
+.bre-drawer-slide-ltr-leave-active {
+  transition: transform 0.3s;
+}
+
+.bre-drawer-slide-ltr-enter-from,
+.bre-drawer-slide-ltr-leave-to {
+  transform: translateX(-100%);
+}
+
+// TTB 动画
+.bre-drawer-slide-ttb-enter-active,
+.bre-drawer-slide-ttb-leave-active {
+  transition: transform 0.3s;
+}
+
+.bre-drawer-slide-ttb-enter-from,
+.bre-drawer-slide-ttb-leave-to {
+  transform: translateY(-100%);
+}
+
+// BTT 动画
+.bre-drawer-slide-btt-enter-active,
+.bre-drawer-slide-btt-leave-active {
+  transition: transform 0.3s;
+}
+
+.bre-drawer-slide-btt-enter-from,
+.bre-drawer-slide-btt-leave-to {
+  transform: translateY(100%);
+}
+
