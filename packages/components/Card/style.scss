@@ -1,0 +1,42 @@
+.bre-card {
+  $border-radius: 4px;
+  $border-color: #ebeef5;
+  $background-color: #ffffff;
+  $header-padding: 16px;
+  $footer-padding: 16px;
+  $body-padding: 16px;
+
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background-color: $background-color;
+  transition: box-shadow 0.3s ease;
+
+  &.shadow-always {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.shadow-hover:hover {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.shadow-never {
+    box-shadow: none;
+  }
+
+  &__header {
+    padding: $header-padding;
+    border-bottom: 1px solid $border-color;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__body {
+    padding: $body-padding;
+  }
+
+  &__footer {
+    padding: $footer-padding;
+    border-top: 1px solid $border-color;
+    font-size: 14px;
+  }
+}

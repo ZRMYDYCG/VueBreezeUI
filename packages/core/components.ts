@@ -4,7 +4,8 @@ import {
   BreIcon,
   BreCollapse,
   BreCollapseItem,
-  BreAlert
+  BreAlert,
+  BreCard
 } from '@breeze-ui/components'
 import type { Plugin } from 'vue'
 
@@ -14,5 +15,6 @@ export default [
   BreIcon,
   BreCollapse,
   BreCollapseItem,
-  BreAlert
+  BreAlert,
+  BreCard
 ] as Plugin[]
