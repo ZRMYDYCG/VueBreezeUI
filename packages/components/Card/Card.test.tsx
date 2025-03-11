@@ -54,10 +54,18 @@ describe('BreCard', () => {
       props: { shadow: 'hover' }
     })
 
+    // 初始状态验证
     expect(wrapper.classes()).toContain('shadow-hover')
-    expect(wrapper.element.style.boxShadow).toBe('')
+    expect(wrapper.classes()).not.toContain('is-hovered')
 
+    // 触发 hover
     await wrapper.trigger('mouseover')
-    expect(wrapper.element.style.boxShadow).toContain('rgba')
+
+    // 验证 hover 类
+    expect(wrapper.classes()).toContain('is-hovered')
+
+    // 验证样式（需要获取计算后的样式）
+    const computedStyle = window.getComputedStyle(wrapper.element)
+    expect(computedStyle.boxShadow).toContain('rgba')
   })
 })

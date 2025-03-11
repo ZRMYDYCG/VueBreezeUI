@@ -1,10 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { CardProps } from './interface.ts'
 
 defineOptions({
   name: 'BreCard'
 })
+
+const isHovered = ref(false)
+
+const handleMouseEnter = () => {
+  if (props.shadow === 'hover') {
+    isHovered.value = true
+  }
+}
+
+const handleMouseLeave = () => {
+  if (props.shadow === 'hover') {
+    isHovered.value = false
+  }
+}
 
 const props = withDefaults(defineProps<CardProps>(), {
   header: '',
@@ -14,11 +28,15 @@ const props = withDefaults(defineProps<CardProps>(), {
   shadow: 'always'
 })
 
-const cardClass = computed(() => ['bre-card', `shadow-${props.shadow}`])
+const cardClass = computed(() => [
+  'bre-card',
+  `shadow-${props.shadow}`,
+  { 'is-hovered': isHovered.value }
+])
 </script>
 
 <template>
-  <div :class="cardClass">
+  <div :class="cardClass" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
     <!-- Header Section -->
     <div v-if="header || $slots.header" class="bre-card__header">
       <slot name="header">

@@ -15,8 +15,10 @@
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   }
 
-  &.shadow-hover:hover {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  &.shadow-hover {
+    &.is-hovered {
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    }
   }
 
   &.shadow-never {
