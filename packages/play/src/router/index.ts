@@ -46,6 +46,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/avatar',
     name: 'Avatar',
     component: () => import('../views/Avatar/index.vue')
+  },
+  {
+    path: '/empty',
+    name: 'Empty',
+    component: () => import('../views/Empty/index.vue')
   }
 ]
 
