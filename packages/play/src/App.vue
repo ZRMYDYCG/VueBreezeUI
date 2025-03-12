@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { routes } from './router'
 import { useRoute, useRouter } from 'vue-router'
+import CommonHeader from './components/common-header.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -13,6 +14,8 @@ let startWidth = 0
 
 const header = ref<HTMLElement>()
 const headerHeight = ref(64)
+
+const componentInfos = ref([])
 
 const handleMouseDown = (e: MouseEvent) => {
   isDragging = true
@@ -38,6 +41,18 @@ const handleMouseUp = () => {
 onMounted(() => {
   if (header.value) {
     headerHeight.value = header.value.offsetHeight
+  }
+})
+
+onMounted(async () => {
+  // 扫描 views 文件夹下的所有 info.ts 文件
+  const modules = import.meta.glob('./views/**/info.ts', { eager: true })
+
+  // 遍历扫描到的模块，提取 info 数据
+  for (const path in modules) {
+    if (modules[path]?.info) {
+      componentInfos.value.push(modules[path].info)
+    }
   }
 })
 
@@ -96,10 +111,10 @@ onUnmounted(() => {
           <img src="/github.svg" alt="" />
         </a>
       </div>
-      <div
-        class="content p-2 overflow-y-auto"
-        :style="{ height: `calc(100vh - ${headerHeight}px)` }"
-      >
+      <div class="content overflow-y-auto" :style="{ height: `calc(100vh - ${headerHeight}px)` }">
+        <!--    组件介绍    -->
+        <CommonHeader :component-infos="componentInfos" v-if="route.path !== '/'" />
+        <!--    组件使用出口    -->
         <transition name="vibrate-fade" mode="out-in" appear>
           <router-view v-slot="{ Component }">
             <component :is="Component" :key="route.path" />
