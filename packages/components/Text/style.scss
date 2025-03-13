@@ -1,0 +1,44 @@
+.bre-text {
+
+  $types: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399
+  );
+
+  $sizes: (
+    large: 16px,
+    default: 14px,
+    small: 12px
+  );
+
+  line-height: 1.5;
+
+  @each $type, $color in $types {
+    &--#{$type} {
+      color: $color;
+    }
+  }
+
+  @each $size, $value in $sizes {
+    &--#{$size} {
+      font-size: $value;
+    }
+  }
+
+  &--truncated {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+  }
+
+  &--line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

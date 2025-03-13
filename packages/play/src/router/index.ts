@@ -66,6 +66,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/link',
     name: 'Link',
     component: () => import('../views/Link/index.vue')
+  },
+  {
+    path: '/text',
+    name: 'Text',
+    component: () => import('../views/Text/index.vue')
   }
 ]
 

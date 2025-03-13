@@ -22,7 +22,7 @@ $close-size: 40px;
     padding: $header-padding;
     font-size: 18px;
     font-weight: 500;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
   }
@@ -144,4 +144,3 @@ $close-size: 40px;
 .bre-drawer-slide-btt-leave-to {
   transform: translateY(100%);
 }
-
