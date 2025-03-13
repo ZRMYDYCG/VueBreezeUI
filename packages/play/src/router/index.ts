@@ -58,9 +58,14 @@ export const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Badge/index.vue')
   },
   {
-    path: '/carousel',
-    name: 'Carousel',
-    component: () => import('../views/Carousel/index.vue')
+    path: '/steps',
+    name: 'Steps',
+    component: () => import('../views/Steps/index.vue')
+  },
+  {
+    path: '/link',
+    name: 'Link',
+    component: () => import('../views/Link/index.vue')
   }
 ]
 

@@ -1,6 +1,6 @@
-import Steps from './Alert.vue'
+import Link from './Link.vue'
 import { withInstall } from '@breeze-ui/utils'
 
-export const BreSteps = withInstall(Steps)
+export const BreLink = withInstall(Link)
 
 export * from './interface.ts'

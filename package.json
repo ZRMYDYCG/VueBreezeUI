@@ -41,6 +41,7 @@
     "prettier": "^3.2.5",
     "release-it": "^18.1.2",
     "shelljs": "^0.8.5",
+    "csstype": "^2.6.20",
     "stylelint": "^16.6.1",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recess-order": "^5.0.1",

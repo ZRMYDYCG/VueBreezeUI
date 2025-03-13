@@ -7,6 +7,7 @@ const visibleA = ref(false)
 const visibleB = ref(false)
 const visibleC = ref(false)
 const visibleD = ref(false)
+const visibleF = ref(false)
 </script>
 
 <template>
@@ -70,9 +71,26 @@ const visibleD = ref(false)
 
     <template #footer>
       <BreButton @click="visibleD = false">关闭</BreButton>
+      <BreButton @click="visibleF = true">打开设置面板F</BreButton>
     </template>
   </BreDrawer>
   <BreButton @click="visibleD = true">打开设置面板D</BreButton>
+
+  <BreDrawer v-model="visibleF" title="设置面板F" direction="btt" :size="400">
+    <template #title>
+      <h2>自定义标题</h2>
+    </template>
+
+    <form class="settings-form">
+      <!-- 表单内容 -->
+      <input type="text" placeholder="请输入姓名" />
+    </form>
+
+    <template #footer>
+      <BreButton @click="visibleF = false">关闭</BreButton>
+    </template>
+  </BreDrawer>
+  <BreButton @click="visibleF = true">打开设置面板F</BreButton>
 </template>
 
 <style scoped lang="scss"></style>
